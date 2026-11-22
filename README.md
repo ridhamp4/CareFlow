@@ -22,7 +22,7 @@ The artifact has three deliberately different views:
 
 ## Role-aware access and languages
 
-The prototype begins with a role-selection sign-in. It is intentionally a **demonstration authentication flow**, not a real IITGN identity system: it stores the selected role only in the browser session and uses no personal data. Each role sees only the part of the application relevant to its work:
+The prototype begins with an account-access form for full name, institute/work email, institute/employee ID, password and role. It validates all required fields and keeps the signed-in name and role only in the browser session. It intentionally is **not a real IITGN identity system**: the password is never stored or transmitted, and no personal data is kept after the browser session. Each role sees only the part of the application relevant to its work:
 
 | Selected role | Visible workspace |
 | --- | --- |
@@ -30,7 +30,7 @@ The prototype begins with a role-selection sign-in. It is intentionally a **demo
 | Cleaning / maintenance staff | Assigned work queue and job-card actions |
 | Operations supervisor | Overview and dispatch board |
 
-The role-selection screen and the complete resident reporting/QR flow can be switched between English, Hindi and Gujarati. The site remembers the selected display language locally in the browser. Task names and campus-location data remain in English so operational labels are consistent in the prototype.
+The sign-in form, resident reporting/QR flow, and core staff and supervisor controls can be switched between English, Hindi and Gujarati. The language selector is available on the sign-in screen and in every signed-in workspace. The site remembers the selected display language locally in the browser. Task names and campus-location data remain in English so operational labels are consistent in the prototype.
 
 ## Interactive workload map
 
