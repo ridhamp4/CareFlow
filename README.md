@@ -8,6 +8,10 @@ Turn a vague, hard-to-follow campus complaint into a clear, visible work item:
 
 `report -> triage / assign -> work in progress -> completion evidence -> confirm or reopen`
 
+### QR location entry point
+
+The resident view now includes real location-specific QR labels for four seeded locations: Hostel H second-floor washroom, Academic Block 4 east stairs, Library north wing and Central Dining corridor. Each QR payload is a URL such as `...?spot=hostel-h-2`; scanning it opens CareFlow directly in the reporting view with the location selected. This removes the need to type a building, floor and landmark while standing in front of a problem. The prototype includes a label preview and a copyable scan link for demonstration or printing.
+
 The artifact has three deliberately different views:
 
 | User | Main need | Prototype support |
