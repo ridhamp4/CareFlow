@@ -10,7 +10,7 @@ Turn a vague, hard-to-follow campus complaint into a clear, visible work item:
 
 ### QR location entry point
 
-The resident view now includes real, self-contained location-specific QR labels for four seeded locations: Hostel H second-floor washroom, Academic Block 4 east stairs, Library north wing and Central Dining corridor. Each QR payload is a URL such as `...?spot=hostel-h-2`; scanning it opens CareFlow directly in the reporting view with the location selected. The labels are generated as local SVG assets, so the page does not depend on a QR CDN at runtime. This removes the need to type a building, floor and landmark while standing in front of a problem. The prototype includes a label preview and a copyable scan link for demonstration or printing.
+The resident view now includes real, self-contained location-specific QR labels for four seeded locations: Hostel H second-floor washroom, Academic Block 4 east stairs, Library north wing and Central Dining corridor. Each QR payload is a URL such as `...?spot=hostel-h-2`; scanning it opens CareFlow directly in the reporting view with the location selected. The labels are generated as local SVG assets, so the page does not depend on a QR CDN at runtime. The QR card and image use responsive sizing: they expand for legibility on a large screen and stack cleanly above the controls on a phone. This removes the need to type a building, floor and landmark while standing in front of a problem. The prototype includes a label preview and a copyable scan link for demonstration or printing.
 
 The artifact has three deliberately different views:
 
@@ -19,6 +19,18 @@ The artifact has three deliberately different views:
 | Student / resident | Raise a problem without knowing who is responsible | Very short report flow with familiar categories, location and optional photo |
 | Cleaner / maintenance worker | Know what to do next while moving around campus | Mobile-friendly job card, clear place, status, note, supplies and escalation actions |
 | Supervisor | Coordinate people across locations without losing judgement | Visible assignment queue, area grouping, workload cues, recurring-pattern prompts, manual override |
+
+## Role-aware access and languages
+
+The prototype begins with a role-selection sign-in. It is intentionally a **demonstration authentication flow**, not a real IITGN identity system: it stores the selected role only in the browser session and uses no personal data. Each role sees only the part of the application relevant to its work:
+
+| Selected role | Visible workspace |
+| --- | --- |
+| Student / resident | Report an issue, including the location QR workflow |
+| Cleaning / maintenance staff | Assigned work queue and job-card actions |
+| Operations supervisor | Overview and dispatch board |
+
+The role-selection screen and the complete resident reporting/QR flow can be switched between English, Hindi and Gujarati. The site remembers the selected display language locally in the browser. Task names and campus-location data remain in English so operational labels are consistent in the prototype.
 
 ## Evidence and scope
 
