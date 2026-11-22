@@ -43,6 +43,10 @@ The supervisor overview contains an interactive, schematic campus-zone map. It i
 
 This provides direct manipulation and visibility of the link between a location, its workload, and the supervisor's next decision, without presenting an opaque route optimisation claim.
 
+### OpenStreetMap task view
+
+Clicking the map rectangle now opens a full-screen Leaflet and OpenStreetMap view centered on IIT Gandhinagar. It displays five illustrative cleaning and maintenance markers, each with an issue, status and “Open dispatch task” action. The base map represents the actual IITGN area; marker coordinates are deliberately approximate prototype placements, not claims about real reports or building entrances. The IITGN centre used is 23.21482, 72.68657, corresponding to the OpenStreetMap-listed campus point. OpenStreetMap tiles require an internet connection when the full map is opened.
+
 ## Evidence and scope
 
 `iitgn_example.pdf` shows a large contracted operation with, among other roles, housekeeping staff, housekeeping supervisors, horticulture staff and supervisors, hostel caretakers, office attendants, technical assistants, managers and maintenance personnel. It also lists cleaning consumables and equipment. CareFlow limits its scope to **cleaning and maintenance operations**: reporting, routing, work status, escalation and supervisor visibility. It does not attempt to manage horticulture, procurement, payroll or the tender itself.
