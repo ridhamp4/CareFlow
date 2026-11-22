@@ -32,6 +32,17 @@ The prototype begins with a role-selection sign-in. It is intentionally a **demo
 
 The role-selection screen and the complete resident reporting/QR flow can be switched between English, Hindi and Gujarati. The site remembers the selected display language locally in the browser. Task names and campus-location data remain in English so operational labels are consistent in the prototype.
 
+## Interactive workload map
+
+The supervisor overview contains an interactive, schematic campus-zone map. It intentionally does not claim to be an accurate IITGN geographic map. Instead, it makes the operational relationship testable in the prototype:
+
+1. Select a pin or a zone row for Academic Blocks, Hostels, or Library and Common Areas.
+2. The map highlights the zone and explains the current work represented by its task count.
+3. Select **Open matching tasks** to open the dispatch board filtered to the representative task for that zone.
+4. Select **Show all** to clear the dispatch filter.
+
+This provides direct manipulation and visibility of the link between a location, its workload, and the supervisor's next decision, without presenting an opaque route optimisation claim.
+
 ## Evidence and scope
 
 `iitgn_example.pdf` shows a large contracted operation with, among other roles, housekeeping staff, housekeeping supervisors, horticulture staff and supervisors, hostel caretakers, office attendants, technical assistants, managers and maintenance personnel. It also lists cleaning consumables and equipment. CareFlow limits its scope to **cleaning and maintenance operations**: reporting, routing, work status, escalation and supervisor visibility. It does not attempt to manage horticulture, procurement, payroll or the tender itself.
