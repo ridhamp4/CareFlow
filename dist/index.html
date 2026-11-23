@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#123e3a" />
-    <title>CareFlow | Campus operations, in flow</title>
+    <title data-i18n>CareFlow | Campus operations, in flow</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
       :root { --ink:#162b2a; --muted:#647575; --forest:#123e3a; --teal:#176b62; --mint:#ddf2ea; --cream:#f7f8f5; --line:#dce5e1; --amber:#e59a2c; --red:#c8524c; --blue:#2d6b9f; --white:#fff; --radius:18px; }
@@ -40,108 +40,115 @@
       .qr-card{margin-top:14px;background:#fff;border:1px solid #cfe4da;border-radius:13px;padding:clamp(13px,2vw,18px)}.qr-card h4{margin:0 0 5px;font-size:.87rem}.qr-card p{font-size:.78rem;margin:0 0 10px}.qr-content{display:flex;align-items:center;gap:clamp(12px,2vw,20px)}.qr-code{width:clamp(112px,19vw,178px);aspect-ratio:1;height:auto;background:#fff;image-rendering:pixelated;border-radius:5px;flex:0 0 auto}.qr-details{min-width:0;flex:1}.qr-details b{font-size:.8rem;display:block;line-height:1.35;margin-bottom:7px}.tiny-button{border:1px solid #bdd8cd;background:#fff;border-radius:8px;padding:7px 9px;color:var(--forest);font-size:.76rem;font-weight:760}.qr-link{word-break:break-all;color:#68827a;font-size:.67rem;line-height:1.35;margin-top:7px}
       .section-page { display:none; }.section-page.active {display:block}.role-switch{display:flex;border:1px solid var(--line);background:#fff;border-radius:11px;padding:4px;gap:3px}.role-switch button{border:0;background:transparent;border-radius:8px;padding:8px 10px;color:var(--muted);font-size:.82rem;font-weight:750}.role-switch button.active{background:var(--mint);color:var(--forest)}
       .form-layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:20px;align-items:start}.form-card{max-width:760px}.field{display:grid;gap:8px;margin-bottom:18px}.field label{font-size:.86rem;font-weight:800}.field label em{font-style:normal;color:var(--red)}.field input,.field select,.field textarea{width:100%;background:#fff;border:1px solid #cfdcd6;border-radius:10px;padding:12px;color:var(--ink);outline:none}.field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#476763 50%),linear-gradient(135deg,#476763 50%,transparent 50%);background-position:calc(100% - 19px) 50%,calc(100% - 14px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(23,107,98,.11)}.field textarea{min-height:92px;resize:vertical}.categories{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.category{border:1px solid var(--line);background:#fff;border-radius:11px;padding:12px;text-align:left;display:flex;align-items:center;gap:9px;font-weight:700;color:#425955}.category.active{border-color:var(--teal);background:#edf7f2;color:var(--forest);box-shadow:0 0 0 2px rgba(23,107,98,.08)}.category b{font-size:1.1rem}.photo-slot{border:1.5px dashed #9dbcb0;background:#f5faf7;color:#56736b;border-radius:12px;padding:17px;text-align:center;font-weight:700;font-size:.84rem}.photo-slot span{display:block;font-size:1.5rem;margin-bottom:5px}.help-card{background:#ecf7f2}.help-card h3{margin:0 0 9px;font-size:1rem}.help-card p{font-size:.85rem;line-height:1.5;color:#45645c;margin:0 0 14px}.steps{display:grid;gap:10px}.step{display:flex;gap:9px;font-size:.83rem;color:#45645c;align-items:start}.step b{width:22px;height:22px;border-radius:50%;background:#c8eadd;color:var(--forest);display:grid;place-items:center;flex:0 0 auto;font-size:.73rem}
-      .staff-layout{display:grid;grid-template-columns:1fr 1.06fr;gap:20px}.staff-list{display:grid;gap:10px}.staff-task{padding:14px;border:1px solid var(--line);border-radius:13px;background:#fff;text-align:left;display:block;width:100%}.staff-task.active{border:2px solid var(--teal);background:#f0faf5}.staff-task strong{font-size:.9rem;display:block;margin:3px 0}.staff-task small{color:var(--muted);font-size:.77rem}.work-card{min-height:450px}.work-header{display:flex;justify-content:space-between;gap:10px;align-items:start}.location-box{padding:13px;margin:19px 0;background:#f5f8f6;border-radius:11px;color:#49635d;font-size:.86rem}.evidence{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:17px 0}.evidence-box{border-radius:10px;background:#eff4f1;min-height:105px;display:grid;place-items:center;color:#8a9d97;font-size:.82rem;position:relative;overflow:hidden}.evidence-box:after{content:"Illustrative image area";font-size:.7rem;position:absolute;bottom:8px;left:0;right:0;text-align:center}.work-actions{display:flex;gap:9px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:17px;margin-top:16px}.work-actions .wide{flex:1}.assignment-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:20px}.assignment-card{display:grid;gap:12px}.assign-row{border:1px solid var(--line);border-radius:13px;padding:13px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.assign-row p{margin:4px 0 0;font-size:.78rem;color:var(--muted)}.assign-select{border:1px solid #cbdcd5;border-radius:8px;padding:7px;background:white;font-size:.8rem;color:var(--ink)}.insight-list{display:grid;gap:11px}.insight{padding:13px;border-left:4px solid var(--amber);background:#fff9ee;border-radius:0 10px 10px 0;font-size:.84rem;line-height:1.43;color:#665230}.insight strong{color:#5a461c;display:block;margin-bottom:3px}.slim-table{width:100%;border-collapse:collapse;font-size:.83rem}.slim-table th{text-align:left;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;padding:0 0 10px}.slim-table td{padding:11px 0;border-top:1px solid var(--line)}
+      .staff-layout{display:grid;grid-template-columns:1fr 1.06fr;gap:20px}.staff-list{display:grid;gap:10px}.staff-task{padding:14px;border:1px solid var(--line);border-radius:13px;background:#fff;text-align:left;display:block;width:100%}.staff-task.active{border:2px solid var(--teal);background:#f0faf5}.staff-task strong{font-size:.9rem;display:block;margin:3px 0}.staff-task small{color:var(--muted);font-size:.77rem}.work-card{min-height:450px}.work-header{display:flex;justify-content:space-between;gap:10px;align-items:start}.location-box{padding:13px;margin:19px 0;background:#f5f8f6;border-radius:11px;color:#49635d;font-size:.86rem}.evidence{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:17px 0}.evidence-box{border-radius:10px;background:#eff4f1;min-height:105px;display:grid;place-items:center;color:#8a9d97;font-size:.82rem;position:relative;overflow:hidden}.evidence-box:after{content:attr(data-image-caption);font-size:.7rem;position:absolute;bottom:8px;left:0;right:0;text-align:center}.work-actions{display:flex;gap:9px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:17px;margin-top:16px}.work-actions .wide{flex:1}.assignment-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:20px}.assignment-card{display:grid;gap:12px}.assign-row{border:1px solid var(--line);border-radius:13px;padding:13px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.assign-row p{margin:4px 0 0;font-size:.78rem;color:var(--muted)}.assign-select{border:1px solid #cbdcd5;border-radius:8px;padding:7px;background:white;font-size:.8rem;color:var(--ink)}.insight-list{display:grid;gap:11px}.insight{padding:13px;border-left:4px solid var(--amber);background:#fff9ee;border-radius:0 10px 10px 0;font-size:.84rem;line-height:1.43;color:#665230}.insight strong{color:#5a461c;display:block;margin-bottom:3px}.slim-table{width:100%;border-collapse:collapse;font-size:.83rem}.slim-table th{text-align:left;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;padding:0 0 10px}.slim-table td{padding:11px 0;border-top:1px solid var(--line)}
       .toast{position:fixed;right:24px;bottom:24px;background:#143f3b;color:white;padding:13px 16px;border-radius:11px;box-shadow:0 14px 30px rgba(16,46,42,.25);font-weight:700;font-size:.88rem;display:none;z-index:10}.toast.show{display:block;animation:in .28s ease-out}@keyframes in{from{transform:translateY(14px);opacity:0}to{transform:translateY(0);opacity:1}}
       .modal-backdrop{display:none;position:fixed;inset:0;background:rgba(14,38,34,.45);z-index:12;padding:22px;place-items:center}.modal-backdrop.open{display:grid}.modal{width:min(500px,100%);background:#fff;border-radius:18px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.2)}.modal h2{margin:0 0 7px;letter-spacing:-.04em}.modal p{margin:0;color:var(--muted);line-height:1.5}.modal .modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:21px}
-      .top-actions{display:flex;align-items:center;gap:13px}.language-select{border:1px solid var(--line);border-radius:8px;background:#fff;padding:8px 28px 8px 10px;color:var(--ink);font-size:.78rem;font-weight:700;appearance:auto}.logout{border:0;background:transparent;color:var(--teal);font-weight:800;font-size:.78rem;padding:6px}.auth-overlay{position:fixed;z-index:30;inset:0;display:grid;place-items:center;padding:20px;background:linear-gradient(135deg,#103a36 0%,#1b6e63 100%);overflow:auto}.auth-overlay.hidden{display:none}.auth-panel{width:min(850px,100%);background:#f9fbf9;border-radius:24px;padding:clamp(22px,5vw,48px);box-shadow:0 25px 70px rgba(0,0,0,.3)}.auth-top{display:flex;align-items:center;justify-content:space-between;gap:12px}.auth-brand{display:flex;align-items:center;gap:9px;font-weight:850;font-size:1.24rem;letter-spacing:-.04em}.auth-brand i{font-style:normal;width:31px;height:31px;display:grid;place-items:center;border-radius:9px;background:var(--mint);color:var(--forest)}.auth-panel h1{font-size:clamp(1.75rem,4vw,2.6rem);letter-spacing:-.06em;margin:34px 0 8px}.auth-panel>p{color:var(--muted);max-width:570px;line-height:1.5;margin:0}.auth-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:25px 0 17px}.auth-field{display:grid;gap:6px}.auth-field.full{grid-column:1/-1}.auth-field label{font-size:.78rem;font-weight:800}.auth-field input{border:1px solid #cfdcd6;border-radius:10px;padding:11px 12px;outline:none;background:#fff}.auth-field input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(23,107,98,.11)}.auth-roles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:10px 0 15px}.auth-role{border:1px solid var(--line);background:white;border-radius:16px;padding:18px;text-align:left;color:var(--ink)}.auth-role:hover,.auth-role:focus,.auth-role.selected{border-color:var(--teal);box-shadow:0 0 0 3px rgba(23,107,98,.12);background:#f2faf5}.auth-role .role-icon{font-size:1.45rem;display:block;margin-bottom:12px}.auth-role b{display:block;font-size:1rem}.auth-role small{display:block;color:var(--muted);font-size:.78rem;line-height:1.45;margin-top:5px}.auth-submit-row{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:18px}.auth-error{font-size:.78rem;color:#a33d3b;font-weight:700;min-height:1.1em}.auth-note{font-size:.78rem;color:#6a8079;line-height:1.45;margin-top:15px}.role-chip{display:none}.role-switch{display:none!important}
-      @media(max-width:980px){.app{grid-template-columns:1fr} aside{position:sticky;top:0;z-index:8;min-height:auto;padding:10px 15px;display:flex;flex-direction:row;align-items:center;gap:12px}.brand span,.side-note{display:none}nav{display:flex;margin-left:auto;gap:2px}.nav-button{width:auto;padding:9px}.nav-button .nav-label{display:none}.topbar{padding:0 22px}.content{padding:26px 22px}.dashboard,.form-layout,.staff-layout,.assignment-grid{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.form-card{max-width:none}}
+      .top-actions{display:flex;align-items:center;gap:13px}.language-select{border:1px solid var(--line);border-radius:8px;background:#fff;padding:8px 28px 8px 10px;color:var(--ink);font-size:.78rem;font-weight:700;appearance:auto}.logout{border:0;background:transparent;color:var(--teal);font-weight:800;font-size:.78rem;padding:6px}.auth-overlay{position:fixed;z-index:30;inset:0;display:grid;grid-template-columns:minmax(0,1fr);place-items:center;padding:20px;background:linear-gradient(135deg,#103a36 0%,#1b6e63 100%);overflow:auto}.auth-overlay.hidden{display:none}.auth-panel{width:min(850px,100%);background:#f9fbf9;border-radius:24px;padding:clamp(22px,5vw,48px);box-shadow:0 25px 70px rgba(0,0,0,.3)}.auth-top{display:flex;align-items:center;justify-content:space-between;gap:12px}.auth-brand{display:flex;align-items:center;gap:9px;font-weight:850;font-size:1.24rem;letter-spacing:-.04em}.auth-brand i{font-style:normal;width:31px;height:31px;display:grid;place-items:center;border-radius:9px;background:var(--mint);color:var(--forest)}.auth-panel h1{font-size:clamp(1.75rem,4vw,2.6rem);letter-spacing:-.06em;margin:34px 0 8px}.auth-panel>p{color:var(--muted);max-width:570px;line-height:1.5;margin:0}.auth-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:25px 0 17px}.auth-field{display:grid;gap:6px}.auth-field.full{grid-column:1/-1}.auth-field label{font-size:.78rem;font-weight:800}.auth-field input{min-width:0;border:1px solid #cfdcd6;border-radius:10px;padding:11px 12px;outline:none;background:#fff}.auth-field input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(23,107,98,.11)}.auth-roles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:10px 0 15px}.auth-role{border:1px solid var(--line);background:white;border-radius:16px;padding:18px;text-align:left;color:var(--ink)}.auth-role:hover,.auth-role:focus,.auth-role.selected{border-color:var(--teal);box-shadow:0 0 0 3px rgba(23,107,98,.12);background:#f2faf5}.auth-role .role-icon{font-size:1.45rem;display:block;margin-bottom:12px}.auth-role b{display:block;font-size:1rem}.auth-role small{display:block;color:var(--muted);font-size:.78rem;line-height:1.45;margin-top:5px}.auth-submit-row{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:18px}.auth-error{font-size:.78rem;color:#a33d3b;font-weight:700;min-height:1.1em}.auth-note{font-size:.78rem;color:#6a8079;line-height:1.45;margin-top:15px}.role-chip{display:none}.role-switch{display:none!important}
+      @media(max-width:980px){.app{grid-template-columns:1fr} .app > aside{position:sticky;top:0;z-index:8;min-height:auto;padding:10px 15px;display:flex;flex-direction:row;align-items:center;gap:12px}.brand span,.side-note{display:none}nav{display:flex;margin-left:auto;gap:2px}.nav-button{width:auto;padding:9px}.nav-button .nav-label{display:none}.topbar{padding:0 22px}.content{padding:26px 22px}.dashboard,.form-layout,.staff-layout,.assignment-grid{grid-template-columns:minmax(0,1fr)}.metrics{grid-template-columns:repeat(2,1fr)}.form-card{max-width:none}}
+      .nav-button[hidden],.assign-row[hidden],.filter-message[hidden]{display:none}
       .field input[aria-invalid="true"]{border-color:#a33d3b}
       .field-error{color:#a33d3b;font-size:.82rem;font-weight:700}
-      @media(max-width:560px){aside{padding:9px 10px}.brand{font-size:1.18rem;padding:0}.brand-mark{width:29px;height:29px}.nav-button{padding:8px}.topbar{height:65px;padding:0 16px}.profile div:not(.avatar){display:none}.content{padding:22px 15px 36px}.page-head{align-items:start;flex-direction:column;margin-bottom:20px}.page-head h1{font-size:1.85rem}.metrics{gap:8px}.metric{padding:12px}.metric b{font-size:1.32rem}.card{padding:17px}.zone-wrap,.evidence{grid-template-columns:1fr}.categories{grid-template-columns:1fr}.task{grid-template-columns:auto 1fr}.task>button{grid-column:2;justify-self:start}.qr-content{align-items:flex-start;flex-direction:column}.qr-code{width:min(62vw,190px)}.crumb{font-size:.75rem}.top-actions{gap:5px}.language-select{max-width:104px;padding-left:6px;padding-right:4px}.auth-roles{grid-template-columns:1fr}.auth-panel h1{margin-top:25px}}
+      @media(max-width:560px){.app > aside{padding:9px 10px}.brand{font-size:1.18rem;padding:0}.brand-mark{width:29px;height:29px}.nav-button{padding:8px}.topbar{height:65px;padding:0 16px}.profile div:not(.avatar){display:none}.content{padding:22px 15px 36px}.page-head{align-items:start;flex-direction:column;margin-bottom:20px}.page-head h1{font-size:1.85rem}.metrics{gap:8px}.metric{padding:12px}.metric b{font-size:1.32rem}.card{padding:17px}.zone-wrap,.evidence{grid-template-columns:1fr}.categories{grid-template-columns:1fr}.task{grid-template-columns:auto 1fr}.task>button{grid-column:2;justify-self:start}.qr-content{align-items:flex-start;flex-direction:column}.qr-code{width:min(62vw,190px)}.crumb{font-size:.75rem}.top-actions{gap:5px}.language-select{max-width:104px;padding-left:6px;padding-right:4px}.auth-roles{grid-template-columns:1fr}.auth-panel h1{margin-top:25px}}
+      @media(max-width:380px){
+        .assignment-grid .left-col,.assignment-grid .right-col{grid-template-columns:minmax(0,1fr)}
+        .assign-row{grid-template-columns:minmax(0,1fr)}
+        .assign-select{max-width:100%;justify-self:start}
+        .toast{max-width:calc(100% - 48px)}
+      }
     </style>
   </head>
   <body>
     <div class="auth-overlay" id="auth-overlay" role="dialog" aria-modal="true" aria-labelledby="auth-title">
       <section class="auth-panel">
-        <div class="auth-top"><div class="auth-brand"><i>✦</i>CareFlow</div><select class="language-select" data-language-select aria-label="Choose language"><option value="en">English</option><option value="hi">हिन्दी</option><option value="gu">ગુજરાતી</option></select></div>
-        <h1 id="auth-title" data-i18n="auth.title">Sign in to CareFlow.</h1>
-        <p data-i18n="auth.copy">Enter your account details, then choose the workspace that matches your campus role.</p>
+        <div class="auth-top"><div class="auth-brand"><i>✦</i>CareFlow</div><select class="language-select" data-language-select aria-label="Choose language" data-i18n-aria-label><option value="en">English</option><option value="hi">हिन्दी</option><option value="gu">ગુજરાતી</option></select></div>
+        <h1 id="auth-title" data-i18n>Sign in to CareFlow.</h1>
+        <p data-i18n>Enter your account details, then choose the workspace that matches your campus role.</p>
         <form id="auth-form" novalidate>
           <div class="auth-fields">
-            <div class="auth-field full"><label for="auth-name" data-i18n="auth.name">Full name</label><input id="auth-name" name="name" autocomplete="name" required minlength="2" placeholder="For example, Aarav Shah" /></div>
-            <div class="auth-field"><label for="auth-email" data-i18n="auth.email">Institute / work email</label><input id="auth-email" name="email" type="email" autocomplete="email" required placeholder="name@iitgn.ac.in" /></div>
-            <div class="auth-field"><label for="auth-id" data-i18n="auth.id">Institute / employee ID</label><input id="auth-id" name="id" autocomplete="username" required minlength="4" placeholder="Your ID" /></div>
-            <div class="auth-field full"><label for="auth-password" data-i18n="auth.password">Password</label><input id="auth-password" name="password" type="password" autocomplete="current-password" required minlength="6" placeholder="At least 6 characters" /></div>
+            <div class="auth-field full"><label for="auth-name" data-i18n>Full name</label><input id="auth-name" name="name" autocomplete="name" required minlength="2" placeholder="For example, Aarav Shah" data-i18n-placeholder /></div>
+            <div class="auth-field"><label for="auth-email" data-i18n>Institute / work email</label><input id="auth-email" name="email" type="email" autocomplete="email" required placeholder="name@iitgn.ac.in" /></div>
+            <div class="auth-field"><label for="auth-id" data-i18n>Institute / employee ID</label><input id="auth-id" name="id" autocomplete="username" required minlength="4" placeholder="Your ID" data-i18n-placeholder /></div>
+            <div class="auth-field full"><label for="auth-password" data-i18n>Password</label><input id="auth-password" name="password" type="password" autocomplete="current-password" required minlength="6" placeholder="At least 6 characters" data-i18n-placeholder /></div>
           </div>
-          <div class="field" style="margin-bottom:7px"><label data-i18n="auth.chooseRole">Choose your access role</label></div>
+          <div class="field" style="margin-bottom:7px"><label data-i18n>Choose your access role</label></div>
           <div class="auth-roles">
-            <button type="button" class="auth-role" data-auth-role="resident"><span class="role-icon">⌖</span><b data-i18n="auth.resident">Student / resident</b><small data-i18n="auth.residentCopy">Report an issue and follow its resolution.</small></button>
-            <button type="button" class="auth-role" data-auth-role="staff"><span class="role-icon">✓</span><b data-i18n="auth.staff">Cleaning / maintenance staff</b><small data-i18n="auth.staffCopy">See assigned job cards and update work.</small></button>
-            <button type="button" class="auth-role" data-auth-role="supervisor"><span class="role-icon">◫</span><b data-i18n="auth.supervisor">Operations supervisor</b><small data-i18n="auth.supervisorCopy">See dispatch, workload and recurring patterns.</small></button>
+            <button type="button" class="auth-role" data-auth-role="resident"><span class="role-icon">⌖</span><b data-i18n>Student / resident</b><small data-i18n>Report an issue and follow its resolution.</small></button>
+            <button type="button" class="auth-role" data-auth-role="staff"><span class="role-icon">✓</span><b data-i18n>Cleaning / maintenance staff</b><small data-i18n>See assigned job cards and update work.</small></button>
+            <button type="button" class="auth-role" data-auth-role="supervisor"><span class="role-icon">◫</span><b data-i18n>Operations supervisor</b><small data-i18n>See dispatch, workload and recurring patterns.</small></button>
           </div>
-          <div class="auth-submit-row"><div class="auth-error" id="auth-error" role="alert"></div><button class="primary" type="submit" data-i18n="auth.submit">Sign in securely</button></div>
+          <div class="auth-submit-row"><div class="auth-error" id="auth-error" role="alert"></div><button class="primary" type="submit" data-i18n>Sign in securely</button></div>
         </form>
-        <div class="auth-note" data-i18n="auth.note">This prototype validates the form in your browser and never stores the password. A deployed system would use IITGN SSO and server-side access control.</div>
+        <div class="auth-note" data-i18n>This prototype validates the form in your browser and never stores the password. A deployed system would use IITGN SSO and server-side access control.</div>
       </section>
     </div>
     <div class="app">
       <aside>
-        <div class="brand"><div class="brand-mark">✦</div><div>CareFlow<span>campus operations</span></div></div>
-        <nav aria-label="Main navigation">
-          <button class="nav-button active" data-page="overview" data-access="supervisor"><span class="nav-icon">▦</span><span class="nav-label" data-i18n="nav.overview">Overview</span></button>
-          <button class="nav-button" data-page="report" data-access="resident"><span class="nav-icon">＋</span><span class="nav-label" data-i18n="nav.report">Report an issue</span></button>
-          <button class="nav-button" data-page="staff" data-access="staff"><span class="nav-icon">✓</span><span class="nav-label" data-i18n="nav.staff">Staff workspace</span></button>
-          <button class="nav-button" data-page="dispatch" data-access="supervisor"><span class="nav-icon">◫</span><span class="nav-label" data-i18n="nav.dispatch">Dispatch board</span></button>
+        <div class="brand"><div class="brand-mark">✦</div><div>CareFlow<span data-i18n>campus operations</span></div></div>
+        <nav aria-label="Main navigation" data-i18n-aria-label>
+          <button class="nav-button active" data-page="overview" data-access="supervisor"><span class="nav-icon">▦</span><span class="nav-label" data-i18n>Overview</span></button>
+          <button class="nav-button" data-page="report" data-access="resident"><span class="nav-icon">＋</span><span class="nav-label" data-i18n>Report an issue</span></button>
+          <button class="nav-button" data-page="staff" data-access="staff"><span class="nav-icon">✓</span><span class="nav-label" data-i18n>Staff workspace</span></button>
+          <button class="nav-button" data-page="dispatch" data-access="supervisor"><span class="nav-icon">◫</span><span class="nav-label" data-i18n>Dispatch board</span></button>
         </nav>
-        <div class="side-note"><strong>Prototype context</strong>Designed to support, not replace, the judgement of campus staff and supervisors.</div>
+        <div class="side-note"><strong data-i18n>Prototype context</strong><span data-i18n>Designed to support, not replace, the judgement of campus staff and supervisors.</span></div>
       </aside>
 
       <main>
-        <header class="topbar"><div class="crumb"><strong data-i18n="campus">IITGN campus</strong> &nbsp;/&nbsp; <span data-i18n="operations.today">Operations today</span></div><div class="top-actions"><select class="language-select" data-language-select aria-label="Choose language"><option value="en">English</option><option value="hi">हिन्दी</option><option value="gu">ગુજરાતી</option></select><div class="profile"><div class="avatar" id="profile-avatar">RP</div><div><b id="profile-name">Ridham Patel</b><small id="profile-role">Operations viewer</small></div></div><button class="logout" id="logout-button" data-i18n="logout">Sign out</button></div></header>
+        <header class="topbar"><div class="crumb"><strong data-i18n>IITGN campus</strong> &nbsp;/&nbsp; <span data-i18n>Operations today</span></div><div class="top-actions"><select class="language-select" data-language-select aria-label="Choose language" data-i18n-aria-label><option value="en">English</option><option value="hi">हिन्दी</option><option value="gu">ગુજરાતી</option></select><div class="profile"><div class="avatar" id="profile-avatar">RP</div><div><b id="profile-name">Ridham Patel</b><small id="profile-role" data-i18n>Operations viewer</small></div></div><button class="logout" id="logout-button" data-i18n>Sign out</button></div></header>
         <div class="content">
           <section class="section-page active" id="overview">
-            <div class="page-head"><div><div class="eyebrow">Monday, 22 November</div><h1>Good evening, team.</h1><p>See what needs attention, what is in motion, and where help is needed.</p></div><button class="primary" data-goto="report">Report an issue</button></div>
+            <div class="page-head"><div><div class="eyebrow" data-i18n>Monday, 22 November</div><h1 data-i18n>Good evening, team.</h1><p data-i18n>See what needs attention, what is in motion, and where help is needed.</p></div><button class="primary" data-goto="report" data-i18n>Report an issue</button></div>
             <div class="dashboard">
               <div class="left-col">
-                <div class="metrics"><div class="metric"><b>18</b><span>Open today</span></div><div class="metric"><b class="up">12</b><span>Resolved today</span></div><div class="metric"><b class="warn">4</b><span>Awaiting assignment</span></div><div class="metric"><b class="late">2</b><span>Need attention</span></div></div>
-                <div class="card"><div class="card-head"><div><div class="card-title">Needs a decision</div><div class="card-subtitle">Unassigned tasks, ordered by urgency and place</div></div><button class="linkish" data-goto="dispatch">Open dispatch board</button></div><div class="queue" id="decision-queue">
-                  <article class="task"><div class="task-icon">🚰</div><div><p class="task-title">Leaking wash-basin tap</p><div class="task-meta"><span>Hostel H · 2nd floor</span><span>Reported 11 min ago</span></div></div><div><span class="pill high">High</span></div></article>
-                  <article class="task"><div class="task-icon">🗑</div><div><p class="task-title">Overflowing bin near east stairs</p><div class="task-meta"><span>Academic Block 4</span><span>Reported 23 min ago</span></div></div><div><span class="pill urgent">Soon</span></div></article>
-                  <article class="task"><div class="task-icon">💡</div><div><p class="task-title">Corridor light not working</p><div class="task-meta"><span>Library · north wing</span><span>Reported 39 min ago</span></div></div><div><span class="pill maintenance">Maintenance</span></div></article>
+                <div class="metrics"><div class="metric"><b>18</b><span data-i18n>Open today</span></div><div class="metric"><b class="up">12</b><span data-i18n>Resolved today</span></div><div class="metric"><b class="warn">4</b><span data-i18n>Awaiting assignment</span></div><div class="metric"><b class="late">2</b><span data-i18n>Need attention</span></div></div>
+                <div class="card"><div class="card-head"><div><div class="card-title" data-i18n>Needs a decision</div><div class="card-subtitle" data-i18n>Unassigned tasks, ordered by urgency and place</div></div><button class="linkish" data-goto="dispatch" data-i18n>Open dispatch board</button></div><div class="queue" id="decision-queue">
+                  <article class="task"><div class="task-icon">🚰</div><div><p class="task-title" data-i18n>Leaking wash-basin tap</p><div class="task-meta"><span data-i18n>Hostel H · 2nd floor</span><span data-i18n>Reported 11 min ago</span></div></div><div><span class="pill high" data-i18n>High</span></div></article>
+                  <article class="task"><div class="task-icon">🗑</div><div><p class="task-title" data-i18n>Overflowing bin near east stairs</p><div class="task-meta"><span>Academic Block 4</span><span data-i18n>Reported 23 min ago</span></div></div><div><span class="pill urgent" data-i18n>Soon</span></div></article>
+                  <article class="task"><div class="task-icon">💡</div><div><p class="task-title" data-i18n>Corridor light not working</p><div class="task-meta"><span data-i18n>Library · north wing</span><span data-i18n>Reported 39 min ago</span></div></div><div><span class="pill maintenance" data-i18n>Maintenance</span></div></article>
                 </div></div>
-                <div class="card"><div class="card-head"><div><div class="card-title">Workload by zone</div><div class="card-subtitle">Select a pin for a summary, or click the map itself to open live campus context</div></div></div><div class="zone-wrap"><div class="mini-map" id="mini-map" role="button" tabindex="0" aria-label="Open OpenStreetMap of IIT Gandhinagar with maintenance tasks"><i class="road one"></i><i class="road two"></i><i class="building b1"></i><i class="building b2"></i><i class="building b3"></i><button class="pin p1 selected" data-map-zone="academic" aria-label="Academic blocks: 4 open tasks"><span>4</span></button><button class="pin p2" data-map-zone="library" aria-label="Library and common areas: 2 open tasks"><span>2</span></button><button class="pin p3" data-map-zone="hostels" aria-label="Hostels: 3 open tasks"><span>3</span></button><span class="map-launch">Open live map</span></div><div class="zone-list"><button class="map-zone selected" data-map-zone="academic"><div class="zone-row"><span>Academic blocks</span><b>4 open</b></div><div class="bar"><i style="width:70%"></i></div></button><button class="map-zone" data-map-zone="hostels"><div class="zone-row"><span>Hostels</span><b>3 open</b></div><div class="bar"><i style="width:52%"></i></div></button><button class="map-zone" data-map-zone="library"><div class="zone-row"><span>Library & common areas</span><b>2 open</b></div><div class="bar"><i style="width:35%"></i></div></button></div><div class="map-detail" id="map-detail"><div><b id="map-zone-name">Academic blocks</b><span id="map-zone-summary">4 open tasks. One overflowing-bin request is waiting near the east stairs.</span></div><button class="primary" id="map-open-dispatch">Open matching tasks</button></div></div></div>
+                <div class="card"><div class="card-head"><div><div class="card-title" data-i18n>Workload by zone</div><div class="card-subtitle" data-i18n>Select a pin for a summary, or click the map itself to open live campus context</div></div></div><div class="zone-wrap"><div class="mini-map" id="mini-map" role="button" tabindex="0" aria-label="Open OpenStreetMap of IIT Gandhinagar with maintenance tasks" data-i18n-aria-label><i class="road one"></i><i class="road two"></i><i class="building b1"></i><i class="building b2"></i><i class="building b3"></i><button class="pin p1 selected" data-map-zone="academic" aria-label="Academic blocks: 4 open tasks" data-i18n-aria-label><span>4</span></button><button class="pin p2" data-map-zone="library" aria-label="Library and common areas: 2 open tasks" data-i18n-aria-label><span>2</span></button><button class="pin p3" data-map-zone="hostels" aria-label="Hostels: 3 open tasks" data-i18n-aria-label><span>3</span></button><span class="map-launch" data-i18n>Open live map</span></div><div class="zone-list"><button class="map-zone selected" data-map-zone="academic"><div class="zone-row"><span data-i18n>Academic blocks</span><b data-i18n>4 open</b></div><div class="bar"><i style="width:70%"></i></div></button><button class="map-zone" data-map-zone="hostels"><div class="zone-row"><span data-i18n>Hostels</span><b data-i18n>3 open</b></div><div class="bar"><i style="width:52%"></i></div></button><button class="map-zone" data-map-zone="library"><div class="zone-row"><span data-i18n>Library & common areas</span><b data-i18n>2 open</b></div><div class="bar"><i style="width:35%"></i></div></button></div><div class="map-detail" id="map-detail"><div><b id="map-zone-name" data-i18n>Academic blocks</b><span id="map-zone-summary" data-i18n>4 open tasks. One overflowing-bin request is waiting near the east stairs.</span></div><button class="primary" id="map-open-dispatch" data-i18n>Open matching tasks</button></div></div></div>
               </div>
-              <div class="right-col"><div class="card notice"><div class="card-subtitle">Service confidence</div><div class="notice-grid"><div><strong>92% on-time today</strong><p>Tasks are being completed within the target time. Two requests need supervisor attention.</p></div><div class="ring">92%</div></div></div>
-                <div class="card"><div class="card-head"><div><div class="card-title">Recently completed</div><div class="card-subtitle">Completion is visible to the requester</div></div></div><div class="queue"><article class="task"><div class="task-icon">🧹</div><div><p class="task-title">Dining corridor spill</p><div class="task-meta"><span>Central dining · 16:12</span></div></div><div><span class="pill">Confirmed</span></div></article><article class="task"><div class="task-icon">🚻</div><div><p class="task-title">Refill soap dispenser</p><div class="task-meta"><span>Hostel D · 15:47</span></div></div><div><span class="pill">Confirmed</span></div></article></div></div>
+              <div class="right-col"><div class="card notice"><div class="card-subtitle" data-i18n>Service confidence</div><div class="notice-grid"><div><strong data-i18n>92% on-time today</strong><p data-i18n>Tasks are being completed within the target time. Two requests need supervisor attention.</p></div><div class="ring">92%</div></div></div>
+                <div class="card"><div class="card-head"><div><div class="card-title" data-i18n>Recently completed</div><div class="card-subtitle" data-i18n>Completion is visible to the requester</div></div></div><div class="queue"><article class="task"><div class="task-icon">🧹</div><div><p class="task-title" data-i18n>Dining corridor spill</p><div class="task-meta"><span data-i18n>Central dining · 16:12</span></div></div><div><span class="pill" data-i18n>Confirmed</span></div></article><article class="task"><div class="task-icon">🚻</div><div><p class="task-title" data-i18n>Refill soap dispenser</p><div class="task-meta"><span>Hostel D · 15:47</span></div></div><div><span class="pill" data-i18n>Confirmed</span></div></article></div></div>
               </div>
             </div>
           </section>
 
           <section class="section-page" id="report">
-            <div class="page-head"><div><div class="eyebrow" data-i18n="report.eyebrow">Resident view</div><h1 data-i18n="report.title">Report what you see.</h1><p data-i18n="report.copy">One clear request is easier to route to the right person.</p></div><div class="role-switch"><button class="active">Student / resident</button><button data-goto="staff">Staff</button><button data-goto="dispatch">Supervisor</button></div></div>
+            <div class="page-head"><div><div class="eyebrow" data-i18n>Resident view</div><h1 data-i18n>Report what you see.</h1><p data-i18n>One clear request is easier to route to the right person.</p></div><div class="role-switch"><button class="active" data-i18n>Student / resident</button><button data-goto="staff" data-i18n>Staff</button><button data-goto="dispatch" data-i18n>Supervisor</button></div></div>
             <div class="form-layout">
               <form class="card form-card" id="issue-form" novalidate>
-                <div class="field"><label><span data-i18n="report.what">What needs attention?</span> <em>*</em></label><div class="categories" id="categories"><button type="button" class="category active" data-category="Cleaning"><b>🧹</b><span data-i18n="report.cleaning">Cleaning or waste</span></button><button type="button" class="category" data-category="Maintenance"><b>🔧</b><span data-i18n="report.maintenance">Repair or maintenance</span></button><button type="button" class="category" data-category="Washroom"><b>🚻</b><span data-i18n="report.washroom">Washroom supplies</span></button><button type="button" class="category" data-category="Safety"><b>⚠</b><span data-i18n="report.safety">Safety concern</span></button></div></div>
+                <div class="field"><label><span data-i18n>What needs attention?</span> <em>*</em></label><div class="categories" id="categories"><button type="button" class="category active" data-category="Cleaning"><b>🧹</b><span data-i18n>Cleaning or waste</span></button><button type="button" class="category" data-category="Maintenance"><b>🔧</b><span data-i18n>Repair or maintenance</span></button><button type="button" class="category" data-category="Washroom"><b>🚻</b><span data-i18n>Washroom supplies</span></button><button type="button" class="category" data-category="Safety"><b>⚠</b><span data-i18n>Safety concern</span></button></div></div>
                 <div class="field">
-                  <label for="location"><span data-i18n="report.where">Where is it?</span> <em>*</em></label>
+                  <label for="location"><span data-i18n>Where is it?</span> <em>*</em></label>
                   <input id="location" name="location" type="text" required />
-                  <span id="location-error" class="field-error" data-i18n="report.locationRequired" role="alert" hidden>Enter the issue location.</span>
+                  <span id="location-error" class="field-error" data-i18n role="alert" hidden>Enter the issue location.</span>
                 </div>
-                <div class="field"><label for="description" data-i18n="report.description">Briefly describe the problem</label><textarea id="description" placeholder="For example: water is pooling near the wash-basin."></textarea></div><div class="field"><label data-i18n="report.photo">Photo (optional)</label><button type="button" class="photo-slot" id="photo-button"><span>⌑</span><span data-i18n="report.addPhoto">Add a photo to clarify the issue</span></button></div><button class="primary" type="submit" data-i18n="report.submit">Submit request</button>
+                <div class="field"><label for="description" data-i18n>Briefly describe the problem</label><textarea id="description" placeholder="For example: water is pooling near the wash-basin." data-i18n-placeholder></textarea></div><div class="field"><label data-i18n>Photo (optional)</label><button type="button" class="photo-slot" id="photo-button"><span>⌑</span><span data-i18n>Add a photo to clarify the issue</span></button></div><button class="primary" type="submit" data-i18n>Submit request</button>
               </form>
-              <aside class="card help-card"><h3 data-i18n="report.next">What happens next?</h3><p data-i18n="report.nextCopy">Your request becomes a visible job card. You can check its status rather than having to follow up repeatedly.</p><div class="steps"><div class="step"><b>1</b><span data-i18n="report.step1">The request is categorised and placed on the relevant queue.</span></div><div class="step"><b>2</b><span data-i18n="report.step2">A supervisor assigns it to the suitable nearby team.</span></div><div class="step"><b>3</b><span data-i18n="report.step3">You receive a completion update, with a way to reopen it if needed.</span></div></div><div class="qr-card"><h4 data-i18n="qr.title">Location QR labels</h4><p data-i18n="qr.copy">Place a label at a washroom, corridor or bin point. A scan pre-fills its location.</p><div class="qr-content"><img id="location-qr" class="qr-code" src="assets/qr/hostel-h-2.svg" alt="QR code for Hostel H second floor"/><div class="qr-details"><b id="qr-location-name">Hostel H · 2nd floor</b><button class="tiny-button" type="button" id="copy-qr-link" data-i18n="qr.copyLink">Copy scan link</button><div id="qr-link" class="qr-link"></div></div></div><div class="field" style="margin:11px 0 0"><label for="qr-spot-select" style="font-size:.75rem" data-i18n="qr.preview">Preview another label</label><select id="qr-spot-select"><option value="hostel-h-2">Hostel H · 2nd floor</option><option value="academic-4-east">Academic Block 4 · east stairs</option><option value="library-north">Library · north wing</option><option value="dining-corridor">Central dining · corridor</option></select></div></div></aside></div>
+              <aside class="card help-card"><h3 data-i18n>What happens next?</h3><p data-i18n>Your request becomes a visible job card. You can check its status rather than having to follow up repeatedly.</p><div class="steps"><div class="step"><b>1</b><span data-i18n>The request is categorised and placed on the relevant queue.</span></div><div class="step"><b>2</b><span data-i18n>A supervisor assigns it to the suitable nearby team.</span></div><div class="step"><b>3</b><span data-i18n>You receive a completion update, with a way to reopen it if needed.</span></div></div><div class="qr-card"><h4 data-i18n>Location QR labels</h4><p data-i18n>Place a label at a washroom, corridor or bin point. A scan pre-fills its location.</p><div class="qr-content"><img id="location-qr" class="qr-code" src="assets/qr/hostel-h-2.svg" alt="QR code for Hostel H second floor"/><div class="qr-details"><b id="qr-location-name" data-i18n>Hostel H · 2nd floor</b><button class="tiny-button" type="button" id="copy-qr-link" data-i18n>Copy scan link</button><div id="qr-link" class="qr-link"></div></div></div><div class="field" style="margin:11px 0 0"><label for="qr-spot-select" style="font-size:.75rem" data-i18n>Preview another label</label><select id="qr-spot-select"><option value="hostel-h-2" data-i18n>Hostel H · 2nd floor</option><option value="academic-4-east" data-i18n>Academic Block 4 · east stairs</option><option value="library-north" data-i18n>Library · north wing</option><option value="dining-corridor" data-i18n>Central dining · corridor</option></select></div></div></aside></div>
           </section>
 
           <section class="section-page" id="staff">
-            <div class="page-head"><div><div class="eyebrow">Staff view</div><h1>Your work, clearly laid out.</h1><p>Small, mobile-friendly job cards keep the focus on action, not data entry.</p></div><div class="role-switch"><button data-goto="report">Student / resident</button><button class="active">Staff</button><button data-goto="dispatch">Supervisor</button></div></div>
-            <div class="staff-layout"><div class="card"><div class="card-head"><div><div class="card-title">My queue</div><div class="card-subtitle">3 tasks assigned to Ravi today</div></div><span class="pill">2 active</span></div><div class="staff-list" id="staff-list"><button class="staff-task active" data-task="tap"><span class="pill maintenance">Maintenance</span><strong>Leaking wash-basin tap</strong><small>Hostel H · 2nd floor · High priority</small></button><button class="staff-task" data-task="bin"><span class="pill">Cleaning</span><strong>Overflowing bin near east stairs</strong><small>Academic Block 4 · Due in 43 min</small></button><button class="staff-task" data-task="soap"><span class="pill">Cleaning</span><strong>Refill soap dispenser</strong><small>Hostel D · Ground floor · Routine</small></button></div></div><div class="card work-card"><div class="work-header"><div><span class="pill maintenance" id="work-type">Maintenance</span><h2 id="work-title" style="margin:9px 0 4px;letter-spacing:-.04em">Leaking wash-basin tap</h2><div class="card-subtitle" id="work-meta">Reported 11 min ago · High priority</div></div><span class="pill high" id="work-status">Assigned</span></div><div class="location-box" id="work-location">⌖ Hostel H, second-floor common washroom<br><small>Near rooms H-213 to H-217</small></div><div class="evidence"><div class="evidence-box">Before photo</div><div class="evidence-box" id="after-photo">Add completion photo</div></div><div class="field"><label for="staff-note">Work note</label><textarea id="staff-note" placeholder="Add a short note if the issue needs follow-up."></textarea></div><div class="work-actions"><button class="secondary" id="supply-button">Need supplies</button><button class="secondary" id="escalate-button">Escalate</button><button class="primary wide" id="complete-button">Mark completed</button></div></div></div>
+            <div class="page-head"><div><div class="eyebrow" data-i18n>Staff view</div><h1 data-i18n>Your work, clearly laid out.</h1><p data-i18n>Small, mobile-friendly job cards keep the focus on action, not data entry.</p></div><div class="role-switch"><button data-goto="report" data-i18n>Student / resident</button><button class="active" data-i18n>Staff</button><button data-goto="dispatch" data-i18n>Supervisor</button></div></div>
+            <div class="staff-layout"><div class="card"><div class="card-head"><div><div class="card-title" data-i18n>My queue</div><div class="card-subtitle" data-i18n>3 tasks assigned to Ravi today</div></div><span class="pill" data-i18n>2 active</span></div><div class="staff-list" id="staff-list"><button class="staff-task active" data-task="tap"><span class="pill maintenance" data-i18n>Maintenance</span><strong data-i18n>Leaking wash-basin tap</strong><small data-i18n>Hostel H · 2nd floor · High priority</small></button><button class="staff-task" data-task="bin"><span class="pill" data-i18n>Cleaning</span><strong data-i18n>Overflowing bin near east stairs</strong><small data-i18n>Academic Block 4 · Due in 43 min</small></button><button class="staff-task" data-task="soap"><span class="pill" data-i18n>Cleaning</span><strong data-i18n>Refill soap dispenser</strong><small data-i18n>Hostel D · Ground floor · Routine</small></button></div></div><div class="card work-card"><div class="work-header"><div><span class="pill maintenance" id="work-type" data-i18n>Maintenance</span><h2 id="work-title" style="margin:9px 0 4px;letter-spacing:-.04em" data-i18n>Leaking wash-basin tap</h2><div class="card-subtitle" id="work-meta" data-i18n>Reported 11 min ago · High priority</div></div><span class="pill high" id="work-status" data-i18n>Assigned</span></div><div class="location-box" id="work-location"><span id="work-place" data-i18n>⌖ Hostel H, second-floor common washroom</span><br><small id="work-landmark" data-i18n>Near rooms H-213 to H-217</small></div><div class="evidence"><div class="evidence-box" data-i18n data-image-caption="Illustrative image area" data-i18n-data-image-caption>Before photo</div><div class="evidence-box" id="after-photo" data-i18n data-image-caption="Illustrative image area" data-i18n-data-image-caption>Add completion photo</div></div><div class="field"><label for="staff-note" data-i18n>Work note</label><textarea id="staff-note" placeholder="Add a short note if the issue needs follow-up." data-i18n-placeholder></textarea></div><div class="work-actions"><button class="secondary" id="supply-button" data-i18n>Need supplies</button><button class="secondary" id="escalate-button" data-i18n>Escalate</button><button class="primary wide" id="complete-button" data-i18n>Mark completed</button></div></div></div>
           </section>
 
           <section class="section-page" id="dispatch">
-            <div class="page-head"><div><div class="eyebrow">Supervisor view</div><h1>Dispatch with context.</h1><p>See the work, match the skill, and keep the human decision in control.</p></div><button class="primary" id="assign-all">Assign suggested tasks</button></div>
-            <div class="assignment-grid"><div class="left-col"><div class="card"><div class="card-head"><div><div class="card-title">Unassigned requests</div><div class="card-subtitle">Grouped by area and ordered by urgency</div></div><span class="pill urgent" id="unassigned-count">3 to assign</span></div><div class="filter-message" id="dispatch-filter-message" hidden><span id="dispatch-filter-text"></span><button id="clear-map-filter">Show all</button></div><div class="assignment-card" id="assignment-list"><div class="assign-row" data-task-zone="hostels"><div><span class="pill high">High</span><strong style="display:block;margin-top:7px">Leaking wash-basin tap</strong><p>Hostel H · technical maintenance · reported 11 min ago</p></div><select class="assign-select"><option>Assign to...</option><option>Ravi · Maintenance</option><option>Imran · Maintenance</option></select></div><div class="assign-row" data-task-zone="academic"><div><span class="pill urgent">Soon</span><strong style="display:block;margin-top:7px">Overflowing bin near east stairs</strong><p>Academic Block 4 · housekeeping · reported 23 min ago</p></div><select class="assign-select"><option>Assign to...</option><option>Meena · Housekeeping</option><option>Suresh · Housekeeping</option></select></div><div class="assign-row" data-task-zone="library"><div><span class="pill maintenance">Maintenance</span><strong style="display:block;margin-top:7px">Corridor light not working</strong><p>Library north wing · electrical · reported 39 min ago</p></div><select class="assign-select"><option>Assign to...</option><option>Imran · Maintenance</option><option>Ravi · Maintenance</option></select></div></div></div><div class="card"><div class="card-head"><div><div class="card-title">Today’s operations</div><div class="card-subtitle">A transparent record, not a black-box score</div></div></div><table class="slim-table"><thead><tr><th>Team</th><th>Now</th><th>Next available</th></tr></thead><tbody><tr><td><b>Housekeeping A</b></td><td>2 active tasks</td><td>15 min</td></tr><tr><td><b>Maintenance B</b></td><td>1 active task</td><td>Now</td></tr><tr><td><b>Hostel response</b></td><td>3 active tasks</td><td>28 min</td></tr></tbody></table></div></div><div class="right-col"><div class="card"><div class="card-head"><div><div class="card-title">Patterns worth checking</div><div class="card-subtitle">Prompts for attention, not automated decisions</div></div></div><div class="insight-list"><div class="insight"><strong>Washroom requests recur in Hostel H</strong>Five related reports this week, concentrated around the second-floor common area.</div><div class="insight" style="border-color:#4f8d83;background:#eff8f4;color:#35645b"><strong style="color:#285449">Academic Block 4 is busy after 5 pm</strong>Consider scheduling a bin and corridor check shortly before the evening rush.</div></div></div><div class="card"><div class="card-title">Why this ordering?</div><p class="card-subtitle" style="line-height:1.55;margin-top:9px">CareFlow makes the reason visible: safety and water issues first, then time waiting, then nearby tasks. You can always override the suggestion.</p></div></div></div>
+            <div class="page-head"><div><div class="eyebrow" data-i18n>Supervisor view</div><h1 data-i18n>Dispatch with context.</h1><p data-i18n>See the work, match the skill, and keep the human decision in control.</p></div><button class="primary" id="assign-all" data-i18n>Assign suggested tasks</button></div>
+            <div class="assignment-grid"><div class="left-col"><div class="card"><div class="card-head"><div><div class="card-title" data-i18n>Unassigned requests</div><div class="card-subtitle" data-i18n>Grouped by area and ordered by urgency</div></div><span class="pill urgent" id="unassigned-count" data-i18n>3 to assign</span></div><div class="filter-message" id="dispatch-filter-message" hidden><span id="dispatch-filter-text"></span><button id="clear-map-filter" data-i18n>Show all</button></div><div class="assignment-card" id="assignment-list"><div class="assign-row" data-task-zone="hostels"><div><span class="pill high" data-i18n>High</span><strong style="display:block;margin-top:7px" data-i18n>Leaking wash-basin tap</strong><p data-i18n>Hostel H · technical maintenance · reported 11 min ago</p></div><select class="assign-select"><option value="Assign to..." data-i18n>Assign to...</option><option value="Ravi · Maintenance" data-i18n>Ravi · Maintenance</option><option value="Imran · Maintenance" data-i18n>Imran · Maintenance</option></select></div><div class="assign-row" data-task-zone="academic"><div><span class="pill urgent" data-i18n>Soon</span><strong style="display:block;margin-top:7px" data-i18n>Overflowing bin near east stairs</strong><p data-i18n>Academic Block 4 · housekeeping · reported 23 min ago</p></div><select class="assign-select"><option value="Assign to..." data-i18n>Assign to...</option><option value="Meena · Housekeeping" data-i18n>Meena · Housekeeping</option><option value="Suresh · Housekeeping" data-i18n>Suresh · Housekeeping</option></select></div><div class="assign-row" data-task-zone="library"><div><span class="pill maintenance" data-i18n>Maintenance</span><strong style="display:block;margin-top:7px" data-i18n>Corridor light not working</strong><p data-i18n>Library north wing · electrical · reported 39 min ago</p></div><select class="assign-select"><option value="Assign to..." data-i18n>Assign to...</option><option value="Imran · Maintenance" data-i18n>Imran · Maintenance</option><option value="Ravi · Maintenance" data-i18n>Ravi · Maintenance</option></select></div></div></div><div class="card"><div class="card-head"><div><div class="card-title" data-i18n>Today’s operations</div><div class="card-subtitle" data-i18n>A transparent record, not a black-box score</div></div></div><table class="slim-table"><thead><tr><th data-i18n>Team</th><th data-i18n>Now</th><th data-i18n>Next available</th></tr></thead><tbody><tr><td><b data-i18n>Housekeeping A</b></td><td data-i18n>2 active tasks</td><td data-i18n>15 min</td></tr><tr><td><b data-i18n>Maintenance B</b></td><td data-i18n>1 active task</td><td data-i18n>Now</td></tr><tr><td><b data-i18n>Hostel response</b></td><td data-i18n>3 active tasks</td><td data-i18n>28 min</td></tr></tbody></table></div></div><div class="right-col"><div class="card"><div class="card-head"><div><div class="card-title" data-i18n>Patterns worth checking</div><div class="card-subtitle" data-i18n>Prompts for attention, not automated decisions</div></div></div><div class="insight-list"><div class="insight"><strong data-i18n>Washroom requests recur in Hostel H</strong><span data-i18n>Five related reports this week, concentrated around the second-floor common area.</span></div><div class="insight" style="border-color:#4f8d83;background:#eff8f4;color:#35645b"><strong style="color:#285449" data-i18n>Academic Block 4 is busy after 5 pm</strong><span data-i18n>Consider scheduling a bin and corridor check shortly before the evening rush.</span></div></div></div><div class="card"><div class="card-title" data-i18n>Why this ordering?</div><p class="card-subtitle" style="line-height:1.55;margin-top:9px" data-i18n>CareFlow makes the reason visible: safety and water issues first, then time waiting, then nearby tasks. You can always override the suggestion.</p></div></div></div>
           </section>
         </div>
       </main>
     </div>
     <div class="live-map-overlay" id="live-map-overlay" role="dialog" aria-modal="true" aria-labelledby="live-map-title">
       <section class="live-map-panel">
-        <header class="live-map-head"><div><h2 id="live-map-title">IIT Gandhinagar: active care requests</h2><p>OpenStreetMap base layer with illustrative prototype task locations.</p></div><button class="live-map-close" id="live-map-close">Close map</button></header>
-        <div class="live-map-wrap"><div id="live-map" class="live-map" aria-label="IIT Gandhinagar task map"></div><div class="map-legend"><strong>What the markers mean</strong><span>Each marker represents a cleaning or maintenance request used in this prototype. Click it for the issue and an option to open the matching dispatch task.</span></div></div>
+        <header class="live-map-head"><div><h2 id="live-map-title" data-i18n>IIT Gandhinagar: active care requests</h2><p data-i18n>OpenStreetMap base layer with illustrative prototype task locations.</p></div><button class="live-map-close" id="live-map-close" data-i18n>Close map</button></header>
+        <div class="live-map-wrap"><div id="live-map" class="live-map" aria-label="IIT Gandhinagar task map" data-i18n-aria-label></div><div class="map-legend"><strong data-i18n>What the markers mean</strong><span data-i18n>Each marker represents a cleaning or maintenance request used in this prototype. Click it for the issue and an option to open the matching dispatch task.</span></div></div>
       </section>
     </div>
     <div class="toast" id="toast" role="status"></div>
-    <div class="modal-backdrop" id="modal"><div class="modal"><h2 id="modal-title">Request received</h2><p id="modal-text">Your job card is ready.</p><div class="modal-actions"><button class="secondary" id="modal-close">Close</button><button class="primary" id="modal-go">View dashboard</button></div></div></div>
+    <div class="modal-backdrop" id="modal"><div class="modal"><h2 id="modal-title" data-i18n>Request received</h2><p id="modal-text" data-i18n>Your job card is ready.</p><div class="modal-actions"><button class="secondary" id="modal-close" data-i18n>Close</button><button class="primary" id="modal-go" data-i18n>View dashboard</button></div></div></div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
       const pages = document.querySelectorAll('.section-page');
@@ -149,38 +156,322 @@
       const toast = document.getElementById('toast');
       const roleConfig={resident:{name:'Aarav Shah',initials:'AS',label:'Student / resident',pages:['report'],defaultPage:'report'},staff:{name:'Ravi Kumar',initials:'RK',label:'Maintenance staff',pages:['staff'],defaultPage:'staff'},supervisor:{name:'Meena Joshi',initials:'MJ',label:'Operations supervisor',pages:['overview','dispatch'],defaultPage:'overview'}};
       let currentRole=null;
-      const translations={
-        hi:{'auth.title':'अपना कार्यक्षेत्र चुनें।','auth.copy':'CareFlow आपके परिसर की भूमिका से जुड़ा काम और कार्रवाई ही दिखाता है।','auth.resident':'छात्र / निवासी','auth.residentCopy':'समस्या दर्ज करें और उसका समाधान देखें।','auth.staff':'सफाई / रखरखाव कर्मचारी','auth.staffCopy':'निर्धारित कार्य देखें और काम की स्थिति अपडेट करें।','auth.supervisor':'ऑपरेशंस सुपरवाइज़र','auth.supervisorCopy':'डिस्पैच, कार्यभार और बार-बार आने वाले पैटर्न देखें।','auth.note':'प्रोटोटाइप साइन-इन: भूमिका के अनुसार कार्यक्षेत्र दिखाने के लिए एक भूमिका चुनें। किसी वास्तविक IITGN खाते या व्यक्तिगत डेटा का उपयोग नहीं होता।','nav.overview':'अवलोकन','nav.report':'समस्या दर्ज करें','nav.staff':'कर्मचारी कार्यक्षेत्र','nav.dispatch':'डिस्पैच बोर्ड','campus':'IITGN परिसर','operations.today':'आज के संचालन','logout':'साइन आउट','report.eyebrow':'निवासी दृश्य','report.title':'जो दिखे, उसे दर्ज करें।','report.copy':'स्पष्ट अनुरोध सही व्यक्ति तक आसानी से पहुँचता है।','report.what':'किस चीज़ पर ध्यान चाहिए?','report.cleaning':'सफाई या कचरा','report.maintenance':'मरम्मत या रखरखाव','report.washroom':'वॉशरूम सामग्री','report.safety':'सुरक्षा संबंधी समस्या','report.where':'यह कहाँ है?','report.locationRequired':'समस्या का स्थान दर्ज करें।','report.description':'समस्या का संक्षेप में विवरण दें','report.photo':'फ़ोटो (वैकल्पिक)','report.addPhoto':'समस्या स्पष्ट करने के लिए फ़ोटो जोड़ें','report.submit':'अनुरोध भेजें','report.next':'आगे क्या होगा?','report.nextCopy':'आपका अनुरोध एक स्पष्ट कार्य-कार्ड बन जाता है। बार-बार फ़ॉलो-अप करने की जरूरत नहीं।','report.step1':'अनुरोध को श्रेणी के आधार पर संबंधित सूची में रखा जाता है।','report.step2':'सुपरवाइज़र इसे उपयुक्त निकटवर्ती टीम को सौंपता है।','report.step3':'आपको पूरा होने का अपडेट मिलता है और जरूरत होने पर दोबारा खोल सकते हैं।','qr.title':'स्थान QR लेबल','qr.copy':'वॉशरूम, गलियारे या बिन के पास लेबल लगाएँ। स्कैन करने पर स्थान अपने-आप भर जाता है।','qr.copyLink':'स्कैन लिंक कॉपी करें','qr.preview':'दूसरा लेबल देखें'},
-        gu:{'auth.title':'તમારું કાર્યક્ષેત્ર પસંદ કરો.','auth.copy':'CareFlow તમારી કેમ્પસ ભૂમિકાને સંબંધિત કામ અને કાર્યવાહી જ બતાવે છે.','auth.resident':'વિદ્યાર્થી / રહેવાસી','auth.residentCopy':'સમસ્યાની જાણ કરો અને તેનું નિરાકરણ જુઓ.','auth.staff':'સફાઈ / જાળવણી સ્ટાફ','auth.staffCopy':'સોંપાયેલા કાર્ય-કાર્ડ જુઓ અને કાર્યની સ્થિતિ અપડેટ કરો.','auth.supervisor':'ઓપરેશન્સ સુપરવાઇઝર','auth.supervisorCopy':'ડિસ્પેચ, કાર્યભાર અને વારંવાર થતા મુદ્દાઓ જુઓ.','auth.note':'પ્રોટોટાઇપ સાઇન-ઇન: ભૂમિકા અનુસાર યોગ્ય કાર્યક્ષેત્ર બતાવવા માટે ભૂમિકા પસંદ કરો. કોઈ વાસ્તવિક IITGN ખાતા કે વ્યક્તિગત ડેટાનો ઉપયોગ થતો નથી.','nav.overview':'ઝાંખી','nav.report':'સમસ્યાની જાણ કરો','nav.staff':'સ્ટાફ કાર્યક્ષેત્ર','nav.dispatch':'ડિસ્પેચ બોર્ડ','campus':'IITGN કેમ્પસ','operations.today':'આજનું સંચાલન','logout':'સાઇન આઉટ','report.eyebrow':'રહેવાસી દૃશ્ય','report.title':'જે દેખાય, તેની જાણ કરો.','report.copy':'સ્પષ્ટ વિનંતી યોગ્ય વ્યક્તિ સુધી સરળતાથી પહોંચે છે.','report.what':'શાને ધ્યાન આપવાની જરૂર છે?','report.cleaning':'સફાઈ અથવા કચરો','report.maintenance':'મરામત અથવા જાળવણી','report.washroom':'વૉશરૂમ સામગ્રી','report.safety':'સલામતીનો મુદ્દો','report.where':'તે ક્યાં છે?','report.locationRequired':'સમસ્યાનું સ્થાન દાખલ કરો.','report.description':'સમસ્યાનું ટૂંકમાં વર્ણન કરો','report.photo':'ફોટો (વૈકલ્પિક)','report.addPhoto':'સમસ્યા સ્પષ્ટ કરવા માટે ફોટો ઉમેરો','report.submit':'વિનંતી મોકલો','report.next':'આગળ શું થશે?','report.nextCopy':'તમારી વિનંતી સ્પષ્ટ કાર્ય-કાર્ડ બને છે. વારંવાર અનુસરણ કરવાની જરૂર નથી.','report.step1':'વિનંતીને શ્રેણી પ્રમાણે સંબંધિત કતારમાં મૂકવામાં આવે છે.','report.step2':'સુપરવાઇઝર તેને યોગ્ય નજીકની ટીમને સોંપે છે.','report.step3':'તમને પૂર્ણતાનું અપડેટ મળે છે અને જરૂર પડે તો ફરીથી ખોલી શકો છો.','qr.title':'સ્થાન QR લેબલ','qr.copy':'વૉશરૂમ, કોરિડોર અથવા ડસ્ટબિન પાસે લેબલ મૂકો. સ્કેન કરવાથી સ્થાન આપમેળે ભરાય છે.','qr.copyLink':'સ્કેન લિંક કૉપી કરો','qr.preview':'બીજું લેબલ જુઓ'}
-      };
-      Object.assign(translations.hi,{'auth.title':'CareFlow में साइन इन करें।','auth.copy':'खाते का विवरण भरें, फिर अपने परिसर की भूमिका के अनुसार कार्यक्षेत्र चुनें।','auth.note':'यह प्रोटोटाइप ब्राउज़र में फॉर्म की जाँच करता है और पासवर्ड संग्रहित नहीं करता। तैनात प्रणाली IITGN SSO और सर्वर-आधारित पहुँच नियंत्रण का उपयोग करेगी।','auth.name':'पूरा नाम','auth.email':'संस्थान / कार्य ईमेल','auth.id':'संस्थान / कर्मचारी आईडी','auth.password':'पासवर्ड','auth.chooseRole':'अपनी पहुँच भूमिका चुनें','auth.submit':'सुरक्षित रूप से साइन इन करें','staff.eyebrow':'कर्मचारी दृश्य','staff.title':'आपका काम, स्पष्ट रूप से व्यवस्थित।','staff.copy':'छोटे, मोबाइल-अनुकूल कार्य-कार्ड कार्रवाई पर ध्यान रखते हैं।','staff.queue':'मेरी कार्य सूची','staff.complete':'पूर्ण चिह्नित करें','staff.supplies':'सामग्री चाहिए','staff.escalate':'एस्केलेट करें','supervisor.eyebrow':'सुपरवाइज़र दृश्य','supervisor.title':'संदर्भ के साथ डिस्पैच करें।','supervisor.copy':'काम देखें, सही कौशल मिलाएँ, और मानवीय निर्णय को नियंत्रण में रखें।','supervisor.assign':'सुझाए गए कार्य सौंपें','supervisor.unassigned':'असाइन न किए गए अनुरोध','supervisor.map':'क्षेत्र के अनुसार कार्यभार','supervisor.openTasks':'मिलते-जुलते कार्य खोलें'});
-      Object.assign(translations.gu,{'auth.title':'CareFlow માં સાઇન ઇન કરો.','auth.copy':'ખાતાની વિગતો ભરો, પછી તમારી કેમ્પસ ભૂમિકા અનુસાર કાર્યક્ષેત્ર પસંદ કરો.','auth.note':'આ પ્રોટોટાઇપ બ્રાઉઝરમાં ફોર્મની ચકાસણી કરે છે અને પાસવર્ડ સંગ્રહિત કરતું નથી. તૈનાત સિસ્ટમ IITGN SSO અને સર્વર-આધારિત ઍક્સેસ નિયંત્રણનો ઉપયોગ કરશે.','auth.name':'પૂરું નામ','auth.email':'સંસ્થા / કાર્ય ઇમેઇલ','auth.id':'સંસ્થા / કર્મચારી ID','auth.password':'પાસવર્ડ','auth.chooseRole':'તમારી ઍક્સેસ ભૂમિકા પસંદ કરો','auth.submit':'સુરક્ષિત રીતે સાઇન ઇન કરો','staff.eyebrow':'સ્ટાફ દૃશ્ય','staff.title':'તમારું કામ, સ્પષ્ટ રીતે ગોઠવાયેલું.','staff.copy':'ટૂંકા, મોબાઇલ-મૈત્રીપૂર્ણ કાર્ય-કાર્ડ કામગીરી પર ધ્યાન રાખે છે.','staff.queue':'મારી કાર્ય કતાર','staff.complete':'પૂર્ણ તરીકે ચિહ્નિત કરો','staff.supplies':'સામગ્રી જોઈએ','staff.escalate':'એસ્કેલેટ કરો','supervisor.eyebrow':'સુપરવાઇઝર દૃશ્ય','supervisor.title':'સંદર્ભ સાથે ડિસ્પેચ કરો.','supervisor.copy':'કામ જુઓ, યોગ્ય કૌશલ્ય મેળવો અને માનવીય નિર્ણયને નિયંત્રણમાં રાખો.','supervisor.assign':'સૂચવેલા કાર્યો સોંપો','supervisor.unassigned':'ન સોંપાયેલ વિનંતીઓ','supervisor.map':'વિસ્તાર પ્રમાણે કાર્યભાર','supervisor.openTasks':'મળતાં કાર્યો ખોલો'});
-      function setLanguage(language){const words=translations[language]||{};document.documentElement.lang=language;document.querySelectorAll('[data-i18n]').forEach(node=>{if(!node.dataset.defaultText)node.dataset.defaultText=node.textContent;node.textContent=words[node.dataset.i18n]||node.dataset.defaultText;});document.querySelectorAll('[data-language-select]').forEach(select=>select.value=language);localStorage.setItem('careflow-language',language);}
+      const messages = new Map([
+        ["1 active task", ["1 सक्रिय काम", "1 સક્રિય કામ"]],
+        ["1 shown", ["1 दिखाया गया", "1 દેખાય છે"]],
+        ["15 min", ["15 मिनट", "15 મિનિટ"]],
+        ["2 active", ["2 सक्रिय", "2 સક્રિય"]],
+        ["2 active tasks", ["2 सक्रिय काम", "2 સક્રિય કામ"]],
+        ["2 open", ["2 खुले", "2 ખુલ્લાં"]],
+        ["2 open tasks. A corridor light issue is waiting in the library north wing.", ["2 खुले काम हैं। पुस्तकालय के उत्तरी खंड में गलियारे की बत्ती की एक शिकायत लंबित है।", "2 કામ ખુલ્લાં છે. પુસ્તકાલયના ઉત્તર વિભાગમાં કોરિડોરની લાઇટની એક ફરિયાદ બાકી છે."]],
+        ["28 min", ["28 मिनट", "28 મિનિટ"]],
+        ["3 active tasks", ["3 सक्रिय काम", "3 સક્રિય કામ"]],
+        ["3 open", ["3 खुले", "3 ખુલ્લાં"]],
+        ["3 open tasks. A high-priority wash-basin tap issue is waiting in Hostel H.", ["3 खुले काम हैं। Hostel H में वॉशबेसिन के नल की एक उच्च प्राथमिकता वाली शिकायत लंबित है।", "3 કામ ખુલ્લાં છે. Hostel Hમાં વૉશબેસિનના નળની ઊંચી પ્રાથમિકતાવાળી એક ફરિયાદ બાકી છે."]],
+        ["3 suggested", ["3 सुझाए गए", "3 સૂચવેલાં"]],
+        ["3 tasks assigned to Ravi today", ["आज Ravi को 3 काम सौंपे गए", "આજે Raviને 3 કામ સોંપાયાં"]],
+        ["3 to assign", ["3 सौंपने बाकी", "3 સોંપવાનાં બાકી"]],
+        ["4 open", ["4 खुले", "4 ખુલ્લાં"]],
+        ["4 open tasks. One overflowing-bin request is waiting near the east stairs.", ["4 खुले काम हैं। पूर्वी सीढ़ियों के पास भरे कूड़ेदान की एक शिकायत लंबित है।", "4 કામ ખુલ્લાં છે. પૂર્વ તરફની સીડી પાસે છલકાતી કચરાપેટીની એક ફરિયાદ બાકી છે."]],
+        ["92% on-time today", ["आज 92% काम समय पर", "આજે 92% કામ સમયસર"]],
+        ["A supervisor assigns it to the suitable nearby team.", ["सुपरवाइज़र इसे उपयुक्त निकटवर्ती टीम को सौंपता है।", "સુપરવાઇઝર તેને યોગ્ય નજીકની ટીમને સોંપે છે."]],
+        ["A transparent record, not a black-box score", ["काम और उपलब्धता का स्पष्ट रिकॉर्ड", "કામ અને ઉપલબ્ધતાનો સ્પષ્ટ રેકોર્ડ"]],
+        ["Academic Block 4 is busy after 5 pm", ["शाम 5 बजे के बाद Academic Block 4 में भीड़ रहती है", "સાંજે 5 વાગ્યા પછી Academic Block 4માં ભીડ રહે છે"]],
+        ["Academic Block 4 · Due in 43 min", ["Academic Block 4 · 43 मिनट में पूरा करें", "Academic Block 4 · 43 મિનિટમાં પૂરું કરો"]],
+        ["Academic Block 4 · east stairs", ["Academic Block 4 · पूर्वी सीढ़ियाँ", "Academic Block 4 · પૂર્વ તરફની સીડી"]],
+        ["Academic Block 4 · housekeeping · reported 23 min ago", ["Academic Block 4 · साफ़-सफ़ाई · 23 मिनट पहले दर्ज", "Academic Block 4 · સાફસફાઈ · 23 મિનિટ પહેલાં નોંધાયું"]],
+        ["Academic blocks", ["शैक्षणिक भवन", "શૈક્ષણિક ભવનો"]],
+        ["Academic blocks: 4 open tasks", ["शैक्षणिक भवन: 4 खुले काम", "શૈક્ષણિક ભવનો: 4 ખુલ્લાં કામ"]],
+        ["Add a photo to clarify the issue", ["समस्या स्पष्ट करने के लिए फ़ोटो जोड़ें", "સમસ્યા સ્પષ્ટ કરવા માટે ફોટો ઉમેરો"]],
+        ["Add a short note if the issue needs follow-up.", ["अगर आगे कार्रवाई की ज़रूरत है, तो एक छोटा नोट लिखें।", "વધુ કાર્યવાહી જરૂરી હોય તો ટૂંકી નોંધ ઉમેરો."]],
+        ["Add completion photo", ["काम पूरा होने की फ़ोटो जोड़ें", "કામ પૂરું થયાનો ફોટો ઉમેરો"]],
+        ["Assign suggested tasks", ["सुझाए गए कार्य सौंपें", "સૂચવેલા કાર્યો સોંપો"]],
+        ["Assign to...", ["किसे सौंपें…", "કોને સોંપવું…"]],
+        ["Assigned", ["सौंपा गया", "સોંપાયું"]],
+        ["At least 6 characters", ["कम से कम 6 वर्ण", "ઓછામાં ઓછા 6 અક્ષરો"]],
+        ["Awaiting assignment", ["कार्य आवंटन बाकी", "સોંપણી બાકી"]],
+        ["Before photo", ["काम से पहले की फ़ोटो", "કામ પહેલાંનો ફોટો"]],
+        ["Briefly describe the problem", ["समस्या का संक्षेप में विवरण दें", "સમસ્યાનું ટૂંકમાં વર્ણન કરો"]],
+        ["CareFlow makes the reason visible: safety and water issues first, then time waiting, then nearby tasks. You can always override the suggestion.", ["CareFlow पहले सुरक्षा और पानी की समस्याएँ दिखाता है, फिर इंतज़ार के समय और नज़दीकी काम के आधार पर क्रम तय करता है। आप सुझाव बदल सकते हैं।", "CareFlow પહેલાં સલામતી અને પાણીની સમસ્યાઓ બતાવે છે, પછી રાહ જોવાનો સમય અને નજીકનાં કામ પ્રમાણે ક્રમ ગોઠવે છે. તમે સૂચન બદલી શકો છો."]],
+        ["CareFlow | Campus operations, in flow", ["CareFlow | परिसर संचालन", "CareFlow | કેમ્પસ સંચાલન"]],
+        ["Central dining · 16:12", ["केंद्रीय भोजनालय · 16:12", "મુખ્ય ભોજનાલય · 16:12"]],
+        ["Central dining · corridor", ["केंद्रीय भोजनालय · गलियारा", "મુખ્ય ભોજનાલય · કોરિડોર"]],
+        ["Choose language", ["भाषा चुनें", "ભાષા પસંદ કરો"]],
+        ["Choose your access role", ["अपनी पहुँच भूमिका चुनें", "તમારી ઍક્સેસ ભૂમિકા પસંદ કરો"]],
+        ["Choose your access role to continue.", ["आगे बढ़ने के लिए अपनी भूमिका चुनें।", "આગળ વધવા માટે તમારી ભૂમિકા પસંદ કરો."]],
+        ["Cleaning", ["सफाई", "સફાઈ"]],
+        ["Cleaning / maintenance staff", ["सफाई / रखरखाव कर्मचारी", "સફાઈ / જાળવણી સ્ટાફ"]],
+        ["Cleaning or waste", ["सफाई या कचरा", "સફાઈ અથવા કચરો"]],
+        ["Close", ["बंद करें", "બંધ કરો"]],
+        ["Close map", ["नक्शा बंद करें", "નકશો બંધ કરો"]],
+        ["Close popup", ["जानकारी बंद करें", "માહિતી બંધ કરો"]],
+        ["Completed", ["पूरा हुआ", "પૂરું થયું"]],
+        ["Completion evidence attached", ["काम पूरा होने का प्रमाण जोड़ा गया", "કામ પૂરું થયાનો પુરાવો જોડાયો"]],
+        ["Completion is visible to the requester", ["अनुरोधकर्ता देख सकता है कि काम पूरा हो गया है।", "વિનંતી કરનાર જોઈ શકે છે કે કામ પૂરું થયું છે."]],
+        ["Confirmed", ["पुष्टि हुई", "પુષ્ટિ થઈ"]],
+        ["Consider scheduling a bin and corridor check shortly before the evening rush.", ["शाम की भीड़ से कुछ पहले कूड़ेदानों और गलियारों की जाँच तय करने पर विचार करें।", "સાંજની ભીડના થોડા સમય પહેલાં કચરાપેટીઓ અને કોરિડોરની તપાસ ગોઠવવાનું વિચારો."]],
+        ["Copy scan link", ["स्कैन लिंक कॉपी करें", "સ્કેન લિંક કૉપી કરો"]],
+        ["Copy this link from the label preview.", ["यह लिंक लेबल के पूर्वावलोकन से कॉपी करें।", "આ લિંક લેબલના પૂર્વાવલોકનમાંથી કૉપી કરો."]],
+        ["Corridor light not working", ["गलियारे की बत्ती काम नहीं कर रही", "કોરિડોરની લાઇટ કામ કરતી નથી"]],
+        ["Designed to support, not replace, the judgement of campus staff and supervisors.", ["यह परिसर के कर्मचारियों और सुपरवाइज़रों को निर्णय लेने में मदद करता है।", "આ કેમ્પસના સ્ટાફ અને સુપરવાઇઝરને નિર્ણય લેવામાં મદદ કરે છે."]],
+        ["Dining corridor spill", ["भोजनालय के गलियारे में तरल पदार्थ गिरा है", "ભોજનાલયના કોરિડોરમાં પ્રવાહી ઢોળાયું છે"]],
+        ["Dispatch board", ["डिस्पैच बोर्ड", "ડિસ્પેચ બોર્ડ"]],
+        ["Dispatch with context.", ["पूरी जानकारी के साथ काम सौंपें।", "પૂરી માહિતી સાથે કામ સોંપો."]],
+        ["Each marker represents a cleaning or maintenance request used in this prototype. Click it for the issue and an option to open the matching dispatch task.", ["हर चिह्न इस प्रोटोटाइप में सफाई या रखरखाव का अनुरोध दिखाता है। समस्या देखने और संबंधित डिस्पैच कार्य खोलने के लिए उस पर क्लिक करें।", "દરેક ચિહ્ન આ પ્રોટોટાઇપની સફાઈ કે જાળવણીની વિનંતી બતાવે છે. સમસ્યા જોવા અને સંબંધિત ડિસ્પેચ કામ ખોલવા ચિહ્ન પર ક્લિક કરો."]],
+        ["Enter a valid institute or work email address.", ["संस्थान या कार्यस्थल का मान्य ईमेल पता दर्ज करें।", "સંસ્થા કે કાર્યસ્થળનું માન્ય ઇમેઇલ સરનામું દાખલ કરો."]],
+        ["Enter the issue location.", ["समस्या का स्थान दर्ज करें।", "સમસ્યાનું સ્થાન દાખલ કરો."]],
+        ["Enter your account details, then choose the workspace that matches your campus role.", ["खाते का विवरण भरें, फिर अपने परिसर की भूमिका के अनुसार कार्यक्षेत्र चुनें।", "ખાતાની વિગતો ભરો, પછી તમારી કેમ્પસ ભૂમિકા અનુસાર કાર્યક્ષેત્ર પસંદ કરો."]],
+        ["Escalate", ["आगे भेजें", "આગળ મોકલો"]],
+        ["Five related reports this week, concentrated around the second-floor common area.", ["इस हफ़्ते पाँच संबंधित शिकायतें आईं, ज़्यादातर दूसरी मंज़िल के साझा क्षेत्र में।", "આ અઠવાડિયે પાંચ સંબંધિત ફરિયાદો આવી, મોટાભાગની બીજા માળના સહિયારા વિસ્તારમાં."]],
+        ["For example, Aarav Shah", ["उदाहरण के लिए, Aarav Shah", "ઉદાહરણ તરીકે, Aarav Shah"]],
+        ["For example: water is pooling near the wash-basin.", ["उदाहरण के लिए, वॉशबेसिन के पास पानी जमा हो रहा है।", "ઉદાહરણ તરીકે, વૉશબેસિન પાસે પાણી જમા થઈ રહ્યું છે."]],
+        ["Full name", ["पूरा नाम", "પૂરું નામ"]],
+        ["Good evening, team.", ["टीम, शुभ संध्या।", "ટીમ, શુભ સાંજ."]],
+        ["Grouped by area and ordered by urgency", ["क्षेत्र के अनुसार समूह, तात्कालिकता के क्रम में", "વિસ્તાર પ્રમાણે જૂથ, તાત્કાલિકતા પ્રમાણે ક્રમ"]],
+        ["High", ["उच्च", "ઉચ્ચ"]],
+        ["High priority", ["उच्च प्राथमिकता", "ઊંચી પ્રાથમિકતા"]],
+        ["Hostel D · Ground floor · Routine", ["Hostel D · भूतल · नियमित", "Hostel D · ભોંયતળિયું · નિયમિત"]],
+        ["Hostel D, ground floor", ["Hostel D, भूतल", "Hostel D, ભોંયતળિયું"]],
+        ["Hostel H · 2nd floor", ["Hostel H · दूसरी मंज़िल", "Hostel H · બીજો માળ"]],
+        ["Hostel H · 2nd floor · High priority", ["Hostel H · दूसरी मंज़िल · उच्च प्राथमिकता", "Hostel H · બીજો માળ · ઊંચી પ્રાથમિકતા"]],
+        ["Hostel H · technical maintenance · reported 11 min ago", ["Hostel H · तकनीकी रखरखाव · 11 मिनट पहले दर्ज", "Hostel H · તકનીકી જાળવણી · 11 મિનિટ પહેલાં નોંધાયું"]],
+        ["Hostel H, second-floor washroom", ["Hostel H, दूसरी मंज़िल का शौचालय", "Hostel H, બીજા માળનું શૌચાલય"]],
+        ["Hostel response", ["छात्रावास सहायता", "છાત્રાલય સહાય"]],
+        ["Hostels", ["छात्रावास", "છાત્રાલયો"]],
+        ["Hostels: 3 open tasks", ["छात्रावास: 3 खुले काम", "છાત્રાલયો: 3 ખુલ્લાં કામ"]],
+        ["Housekeeping A", ["साफ़-सफ़ाई A", "સાફસફાઈ A"]],
+        ["IIT Gandhinagar task map", ["IIT Gandhinagar का कार्य नक्शा", "IIT Gandhinagarનાં કામનો નકશો"]],
+        ["IIT Gandhinagar: active care requests", ["IIT Gandhinagar: सक्रिय देखभाल अनुरोध", "IIT Gandhinagar: સંભાળ માટેની સક્રિય વિનંતીઓ"]],
+        ["IITGN campus", ["IITGN परिसर", "IITGN કેમ્પસ"]],
+        ["Illustrative image area", ["उदाहरण फ़ोटो का स्थान", "નમૂનાના ફોટા માટેની જગ્યા"]],
+        ["Imran · Maintenance", ["Imran · रखरखाव", "Imran · જાળવણી"]],
+        ["Institute / employee ID", ["संस्थान / कर्मचारी आईडी", "સંસ્થા / કર્મચારી ID"]],
+        ["Institute / work email", ["संस्थान / कार्य ईमेल", "સંસ્થા / કાર્ય ઇમેઇલ"]],
+        ["Leaking wash-basin tap", ["वॉशबेसिन का नल टपक रहा है", "વૉશબેસિનનો નળ ટપકે છે"]],
+        ["Library & common areas", ["पुस्तकालय और साझा क्षेत्र", "પુસ્તકાલય અને સહિયારા વિસ્તારો"]],
+        ["Library and common areas: 2 open tasks", ["पुस्तकालय और साझा क्षेत्र: 2 खुले काम", "પુસ્તકાલય અને સહિયારા વિસ્તારો: 2 ખુલ્લાં કામ"]],
+        ["Library north wing", ["पुस्तकालय का उत्तरी खंड", "પુસ્તકાલયનો ઉત્તર વિભાગ"]],
+        ["Library north wing · electrical · reported 39 min ago", ["पुस्तकालय का उत्तरी खंड · बिजली का काम · 39 मिनट पहले दर्ज", "પુસ્તકાલયનો ઉત્તર વિભાગ · વીજળીનું કામ · 39 મિનિટ પહેલાં નોંધાયું"]],
+        ["Library · north wing", ["पुस्तकालय · उत्तरी खंड", "પુસ્તકાલય · ઉત્તર વિભાગ"]],
+        ["Location QR labels", ["स्थान QR लेबल", "સ્થાન QR લેબલ"]],
+        ["Location scan link copied.", ["स्थान की स्कैन लिंक कॉपी हो गई।", "સ્થાનની સ્કૅન લિંક કૉપી થઈ."]],
+        ["Location set: {place}", ["स्थान भर दिया गया: {place}", "સ્થાન ભરાયું: {place}"]],
+        ["Main navigation", ["मुख्य नेविगेशन", "મુખ્ય નેવિગેશન"]],
+        ["Maintenance", ["रखरखाव", "જાળવણી"]],
+        ["Maintenance B", ["रखरखाव B", "જાળવણી B"]],
+        ["Maintenance staff", ["रखरखाव कर्मचारी", "જાળવણી સ્ટાફ"]],
+        ["Mark completed", ["पूर्ण चिह्नित करें", "પૂર્ણ તરીકે ચિહ્નિત કરો"]],
+        ["Marked completed. The requester can now confirm or reopen it.", ["काम पूरा चिह्नित हुआ। अनुरोधकर्ता अब पुष्टि कर सकता है या इसे फिर खोल सकता है।", "કામ પૂરું ગણાયું. વિનંતી કરનાર હવે પુષ્ટિ કરી શકે છે અથવા તેને ફરી ખોલી શકે છે."]],
+        ["Meena · Housekeeping", ["Meena · साफ़-सफ़ाई", "Meena · સાફસફાઈ"]],
+        ["Monday, 22 November", ["सोमवार, 22 नवंबर", "સોમવાર, 22 નવેમ્બર"]],
+        ["My queue", ["मेरी कार्य सूची", "મારી કાર્ય કતાર"]],
+        ["Near rooms H-213 to H-217", ["कमरा H-213 से H-217 के पास", "રૂમ H-213 થી H-217 પાસે"]],
+        ["Near the common room", ["साझा कक्ष के पास", "સહિયારા ખંડ પાસે"]],
+        ["Near the first-floor landing", ["पहली मंज़िल की सीढ़ियों के मोड़ के पास", "પહેલા માળે સીડીના મથાળા પાસે"]],
+        ["Need attention", ["ध्यान देने की ज़रूरत", "ધ્યાન આપવાની જરૂર"]],
+        ["Need supplies", ["सामग्री चाहिए", "સામગ્રી જોઈએ"]],
+        ["Needs a decision", ["निर्णय की ज़रूरत", "નિર્ણય લેવાની જરૂર"]],
+        ["Next available", ["अगली उपलब्धता", "ફરી ક્યારે ઉપલબ્ધ"]],
+        ["Now", ["अभी", "હમણાં"]],
+        ["One clear request is easier to route to the right person.", ["स्पष्ट अनुरोध सही व्यक्ति तक आसानी से पहुँचता है।", "સ્પષ્ટ વિનંતી યોગ્ય વ્યક્તિ સુધી સરળતાથી પહોંચે છે."]],
+        ["Open OpenStreetMap of IIT Gandhinagar with maintenance tasks", ["IIT Gandhinagar के रखरखाव के काम OpenStreetMap पर खोलें", "IIT Gandhinagarનાં જાળવણીનાં કામ OpenStreetMap પર ખોલો"]],
+        ["Open dispatch board", ["डिस्पैच बोर्ड खोलें", "ડિસ્પેચ બોર્ડ ખોલો"]],
+        ["Open dispatch task", ["डिस्पैच कार्य खोलें", "ડિસ્પેચ કામ ખોલો"]],
+        ["Open live map", ["लाइव नक्शा खोलें", "લાઇવ નકશો ખોલો"]],
+        ["Open matching tasks", ["संबंधित काम खोलें", "સંબંધિત કામ ખોલો"]],
+        ["Open today", ["आज खुले अनुरोध", "આજે ખુલ્લી વિનંતીઓ"]],
+        ["OpenStreetMap base layer with illustrative prototype task locations.", ["OpenStreetMap की आधार परत पर प्रोटोटाइप के उदाहरण कार्यस्थल।", "OpenStreetMapની મૂળભૂત પરત પર પ્રોટોટાઇપનાં ઉદાહરણરૂપ કામનાં સ્થળો."]],
+        ["OpenStreetMap contributors", ["OpenStreetMap के योगदानकर्ता", "OpenStreetMapના યોગદાનકર્તાઓ"]],
+        ["Operations supervisor", ["ऑपरेशंस सुपरवाइज़र", "ઓપરેશન્સ સુપરવાઇઝર"]],
+        ["Operations today", ["आज के संचालन", "આજનું સંચાલન"]],
+        ["Operations viewer", ["संचालन दर्शक", "સંચાલન દર્શક"]],
+        ["Overflowing bin near east stairs", ["पूर्वी सीढ़ियों के पास कूड़ादान भर गया है", "પૂર્વ તરફની સીડી પાસે કચરાપેટી છલકાય છે"]],
+        ["Overview", ["अवलोकन", "ઝાંખી"]],
+        ["Password", ["पासवर्ड", "પાસવર્ડ"]],
+        ["Patterns worth checking", ["ध्यान देने योग्य रुझान", "ધ્યાન આપવા જેવા વલણો"]],
+        ["Photo (optional)", ["फ़ोटो (वैकल्पिक)", "ફોટો (વૈકલ્પિક)"]],
+        ["Photo slot opened — image upload is represented in this prototype.", ["फ़ोटो का स्थान खुल गया। इस प्रोटोटाइप में अपलोड का केवल उदाहरण दिखाया गया है।", "ફોટાની જગ્યા ખૂલી. આ પ્રોટોટાઇપમાં અપલોડનું માત્ર ઉદાહરણ બતાવ્યું છે."]],
+        ["Place a label at a washroom, corridor or bin point. A scan pre-fills its location.", ["वॉशरूम, गलियारे या बिन के पास लेबल लगाएँ। स्कैन करने पर स्थान अपने-आप भर जाता है।", "વૉશરૂમ, કોરિડોર અથવા ડસ્ટબિન પાસે લેબલ મૂકો. સ્કેન કરવાથી સ્થાન આપમેળે ભરાય છે."]],
+        ["Please complete every account field; the password must have at least 6 characters.", ["खाते के सभी फ़ील्ड भरें। पासवर्ड में कम से कम 6 वर्ण होने चाहिए।", "ખાતાનાં બધાં ક્ષેત્ર ભરો. પાસવર્ડમાં ઓછામાં ઓછા 6 અક્ષરો હોવા જોઈએ."]],
+        ["Preview another label", ["दूसरा लेबल देखें", "બીજું લેબલ જુઓ"]],
+        ["Prompts for attention, not automated decisions", ["समीक्षा के लिए सुझाव", "સમીક્ષા માટે સૂચનો"]],
+        ["Prototype context", ["प्रोटोटाइप का उद्देश्य", "પ્રોટોટાઇપનો હેતુ"]],
+        ["QR code for {place}", ["{place} का QR कोड", "{place} માટેનો QR કોડ"]],
+        ["Ravi · Maintenance", ["Ravi · रखरखाव", "Ravi · જાળવણી"]],
+        ["Recently completed", ["हाल में पूरे किए गए", "તાજેતરમાં પૂરાં થયેલાં"]],
+        ["Refill soap dispenser", ["साबुन डिस्पेंसर फिर से भरें", "સાબુનું ડિસ્પેન્સર ફરી ભરો"]],
+        ["Repair or maintenance", ["मरम्मत या रखरखाव", "મરામત અથવા જાળવણી"]],
+        ["Report an issue", ["समस्या दर्ज करें", "સમસ્યાની જાણ કરો"]],
+        ["Report an issue and follow its resolution.", ["समस्या दर्ज करें और उसका समाधान देखें।", "સમસ્યાની જાણ કરો અને તેનું નિરાકરણ જુઓ."]],
+        ["Report what you see.", ["जो दिखे, उसे दर्ज करें।", "જે દેખાય, તેની જાણ કરો."]],
+        ["Reported 11 min ago", ["11 मिनट पहले दर्ज", "11 મિનિટ પહેલાં નોંધાયું"]],
+        ["Reported 11 min ago · High priority", ["11 मिनट पहले दर्ज · उच्च प्राथमिकता", "11 મિનિટ પહેલાં નોંધાયું · ઊંચી પ્રાથમિકતા"]],
+        ["Reported 23 min ago", ["23 मिनट पहले दर्ज", "23 મિનિટ પહેલાં નોંધાયું"]],
+        ["Reported 23 min ago · Due in 43 min", ["23 मिनट पहले दर्ज · 43 मिनट में पूरा करें", "23 મિનિટ પહેલાં નોંધાયું · 43 મિનિટમાં પૂરું કરો"]],
+        ["Reported 39 min ago", ["39 मिनट पहले दर्ज", "39 મિનિટ પહેલાં નોંધાયું"]],
+        ["Request received", ["अनुरोध मिला", "વિનંતી મળી"]],
+        ["Resident view", ["निवासी दृश्य", "રહેવાસી દૃશ્ય"]],
+        ["Resolved today", ["आज हल किए गए", "આજે ઉકેલાયેલી"]],
+        ["Routine", ["नियमित", "નિયમિત"]],
+        ["Safety", ["सुरक्षा", "સલામતી"]],
+        ["Safety concern", ["सुरक्षा संबंधी समस्या", "સલામતીનો મુદ્દો"]],
+        ["Scheduled routine check · due today", ["निर्धारित नियमित जाँच · आज पूरी करें", "નક્કી કરેલી નિયમિત તપાસ · આજે પૂરી કરો"]],
+        ["See assigned job cards and update work.", ["निर्धारित कार्य देखें और काम की स्थिति अपडेट करें।", "સોંપાયેલા કાર્ય-કાર્ડ જુઓ અને કાર્યની સ્થિતિ અપડેટ કરો."]],
+        ["See dispatch, workload and recurring patterns.", ["डिस्पैच, कार्यभार और बार-बार आने वाले पैटर्न देखें।", "ડિસ્પેચ, કાર્યભાર અને વારંવાર થતા મુદ્દાઓ જુઓ."]],
+        ["See the work, match the skill, and keep the human decision in control.", ["काम देखें, सही कौशल वाले व्यक्ति को चुनें और अंतिम निर्णय खुद लें।", "કામ જુઓ, યોગ્ય કુશળતા ધરાવતી વ્યક્તિ પસંદ કરો અને અંતિમ નિર્ણય જાતે લો."]],
+        ["See what needs attention, what is in motion, and where help is needed.", ["देखें कि किन समस्याओं पर ध्यान देना है, कौन से काम चल रहे हैं और कहाँ मदद चाहिए।", "કઈ બાબતો પર ધ્યાન આપવું છે, કયાં કામ ચાલુ છે અને ક્યાં મદદ જોઈએ તે જુઓ."]],
+        ["Select a pin for a summary, or click the map itself to open live campus context", ["सारांश के लिए पिन चुनें या परिसर का लाइव नक्शा खोलने के लिए नक्शे पर क्लिक करें।", "સારાંશ માટે પિન પસંદ કરો અથવા કેમ્પસનો લાઇવ નકશો ખોલવા નકશા પર ક્લિક કરો."]],
+        ["Service confidence", ["सेवा प्रदर्शन", "સેવાની કામગીરી"]],
+        ["Show all", ["सभी दिखाएँ", "બધાં બતાવો"]],
+        ["Showing the representative task for {zone}.", ["चुने गए क्षेत्र का उदाहरण कार्य: {zone}।", "પસંદ કરેલા વિસ્તારનું ઉદાહરણરૂપ કામ: {zone}."]],
+        ["Sign in securely", ["सुरक्षित रूप से साइन इन करें", "સુરક્ષિત રીતે સાઇન ઇન કરો"]],
+        ["Sign in to CareFlow.", ["CareFlow में साइन इन करें।", "CareFlow માં સાઇન ઇન કરો."]],
+        ["Sign out", ["साइन आउट", "સાઇન આઉટ"]],
+        ["Small, mobile-friendly job cards keep the focus on action, not data entry.", ["फ़ोन पर आसानी से दिखने वाले छोटे कार्य कार्ड सीधे कार्रवाई करने में मदद करते हैं।", "ફોન પર સરળતાથી દેખાતાં ટૂંકાં કાર્ય કાર્ડ કામ પર ધ્યાન રાખવામાં મદદ કરે છે."]],
+        ["Soon", ["जल्द", "જલદી"]],
+        ["Spill near east staircase", ["पूर्वी सीढ़ियों के पास तरल पदार्थ गिरा है", "પૂર્વ તરફની સીડી પાસે પ્રવાહી ઢોળાયું છે"]],
+        ["Staff", ["कर्मचारी", "સ્ટાફ"]],
+        ["Staff view", ["कर्मचारी दृश्य", "સ્ટાફ દૃશ્ય"]],
+        ["Staff workspace", ["कर्मचारी कार्यक्षेत्र", "સ્ટાફ કાર્યક્ષેત્ર"]],
+        ["Student / resident", ["छात्र / निवासी", "વિદ્યાર્થી / રહેવાસી"]],
+        ["Submit request", ["अनुरोध भेजें", "વિનંતી મોકલો"]],
+        ["Suggested assignees added. Supervisor review remains required.", ["सुझाए गए कर्मचारी जोड़ दिए गए हैं। सुपरवाइज़र की समीक्षा अभी बाकी है।", "સૂચવેલા કર્મચારીઓ ઉમેરાયા છે. સુપરવાઇઝરની સમીક્ષા હજી બાકી છે."]],
+        ["Supervisor", ["सुपरवाइज़र", "સુપરવાઇઝર"]],
+        ["Supervisor view", ["सुपरवाइज़र दृश्य", "સુપરવાઇઝર દૃશ્ય"]],
+        ["Supply request added to the supervisor queue.", ["सामग्री का अनुरोध सुपरवाइज़र की कतार में जोड़ दिया गया।", "સામગ્રીની વિનંતી સુપરવાઇઝરની કતારમાં ઉમેરાઈ."]],
+        ["Suresh · Housekeeping", ["Suresh · साफ़-सफ़ाई", "Suresh · સાફસફાઈ"]],
+        ["Task escalated with your work note.", ["काम आपके नोट के साथ आगे भेज दिया गया।", "કામ તમારી નોંધ સાથે આગળ મોકલાયું."]],
+        ["Tasks are being completed within the target time. Two requests need supervisor attention.", ["काम तय समय में पूरे हो रहे हैं। दो अनुरोधों पर सुपरवाइज़र को ध्यान देना है।", "કામ નક્કી કરેલા સમયમાં પૂરાં થઈ રહ્યાં છે. બે વિનંતી પર સુપરવાઇઝરે ધ્યાન આપવાની જરૂર છે."]],
+        ["Team", ["टीम", "ટીમ"]],
+        ["The OpenStreetMap library could not load. Please check your internet connection and reopen the map.", ["OpenStreetMap लोड नहीं हो सका। इंटरनेट कनेक्शन जाँचें और नक्शा फिर खोलें।", "OpenStreetMap લોડ થઈ શક્યું નથી. ઇન્ટરનેટ કનેક્શન તપાસો અને નકશો ફરી ખોલો."]],
+        ["The request is categorised and placed on the relevant queue.", ["अनुरोध को श्रेणी के आधार पर संबंधित सूची में रखा जाता है।", "વિનંતીને શ્રેણી પ્રમાણે સંબંધિત કતારમાં મૂકવામાં આવે છે."]],
+        ["This prototype validates the form in your browser and never stores the password. A deployed system would use IITGN SSO and server-side access control.", ["यह प्रोटोटाइप ब्राउज़र में फॉर्म की जाँच करता है और पासवर्ड संग्रहित नहीं करता। तैनात प्रणाली IITGN SSO और सर्वर-आधारित पहुँच नियंत्रण का उपयोग करेगी।", "આ પ્રોટોટાઇપ બ્રાઉઝરમાં ફોર્મની ચકાસણી કરે છે અને પાસવર્ડ સંગ્રહિત કરતું નથી. તૈનાત સિસ્ટમ IITGN SSO અને સર્વર-આધારિત ઍક્સેસ નિયંત્રણનો ઉપયોગ કરશે."]],
+        ["Ticket CF-1048 is now in the active queue.", ["टिकट CF-1048 अब सक्रिय कतार में है।", "ટિકિટ CF-1048 હવે સક્રિય કતારમાં છે."]],
+        ["Today’s operations", ["आज का संचालन", "આજનું સંચાલન"]],
+        ["Unassigned requests", ["बिना आवंटन वाले अनुरोध", "ન સોંપાયેલી વિનંતીઓ"]],
+        ["Unassigned tasks, ordered by urgency and place", ["बिना आवंटन वाले काम, तात्कालिकता और स्थान के क्रम में", "ન સોંપાયેલાં કામ, તાત્કાલિકતા અને સ્થાન પ્રમાણે"]],
+        ["View dashboard", ["डैशबोर्ड देखें", "ડૅશબોર્ડ જુઓ"]],
+        ["Washroom", ["शौचालय", "શૌચાલય"]],
+        ["Washroom requests recur in Hostel H", ["Hostel H में शौचालय की शिकायतें बार-बार आ रही हैं", "Hostel Hમાં શૌચાલયની ફરિયાદો વારંવાર આવે છે"]],
+        ["Washroom supplies", ["वॉशरूम सामग्री", "વૉશરૂમ સામગ્રી"]],
+        ["What happens next?", ["आगे क्या होगा?", "આગળ શું થશે?"]],
+        ["What needs attention?", ["किस चीज़ पर ध्यान चाहिए?", "શાને ધ્યાન આપવાની જરૂર છે?"]],
+        ["What the markers mean", ["चिह्नों का मतलब", "ચિહ્નોનો અર્થ"]],
+        ["Where is it?", ["यह कहाँ है?", "તે ક્યાં છે?"]],
+        ["Why this ordering?", ["यह क्रम क्यों?", "આ ક્રમ શા માટે?"]],
+        ["Work note", ["काम का नोट", "કામની નોંધ"]],
+        ["Workload by zone", ["क्षेत्र के अनुसार कार्यभार", "વિસ્તાર પ્રમાણે કાર્યભાર"]],
+        ["You receive a completion update, with a way to reopen it if needed.", ["आपको पूरा होने का अपडेट मिलता है और जरूरत होने पर दोबारा खोल सकते हैं।", "તમને પૂર્ણતાનું અપડેટ મળે છે અને જરૂર પડે તો ફરીથી ખોલી શકો છો."]],
+        ["Your ID", ["आपकी आईडी", "તમારી ID"]],
+        ["Your job card is ready.", ["आपका कार्य कार्ड तैयार है।", "તમારું કાર્ય કાર્ડ તૈયાર છે."]],
+        ["Your request becomes a visible job card. You can check its status rather than having to follow up repeatedly.", ["आपका अनुरोध एक स्पष्ट कार्य-कार्ड बन जाता है। बार-बार फ़ॉलो-अप करने की जरूरत नहीं।", "તમારી વિનંતી સ્પષ્ટ કાર્ય-કાર્ડ બને છે. વારંવાર અનુસરણ કરવાની જરૂર નથી."]],
+        ["Your work, clearly laid out.", ["आपका काम, स्पष्ट रूप से व्यवस्थित।", "તમારું કામ, સ્પષ્ટ રીતે ગોઠવાયેલું."]],
+        ["Your {type} request at {location} has been added to the relevant queue. Ticket CF-1048 is visible to the operations team.", ["{location} के लिए आपका अनुरोध ({type}) संबंधित कतार में जोड़ दिया गया है। संचालन टीम टिकट CF-1048 देख सकती है।", "{location} માટેની તમારી વિનંતી ({type}) સંબંધિત કતારમાં ઉમેરાઈ છે. સંચાલન ટીમ ટિકિટ CF-1048 જોઈ શકે છે."]],
+        ["Zoom in", ["नक्शा बड़ा करें", "નકશો મોટો કરો"]],
+        ["Zoom out", ["नक्शा छोटा करें", "નકશો નાનો કરો"]],
+        ["campus operations", ["परिसर संचालन", "કેમ્પસ સંચાલન"]],
+        ["⌖ Academic Block 4, east staircase", ["⌖ Academic Block 4, पूर्वी सीढ़ियाँ", "⌖ Academic Block 4, પૂર્વ તરફની સીડી"]],
+        ["⌖ Hostel D, ground-floor washroom", ["⌖ Hostel D, भूतल का शौचालय", "⌖ Hostel D, ભોંયતળિયાનું શૌચાલય"]],
+        ["⌖ Hostel H, second-floor common washroom", ["⌖ Hostel H, दूसरी मंज़िल का साझा शौचालय", "⌖ Hostel H, બીજા માળનું સહિયારું શૌચાલય"]],
+      ]);
+      const languages = ['en', 'hi', 'gu'];
+      const localizedNodes = new Map();
+      let language = 'en';
+
+      function translate(source, parameters = {}) {
+        const message = messages.get(source)?.[languages.indexOf(language) - 1] ?? source;
+        return message.replace(/\{(\w+)\}/g, (_, name) => parameters[name] ?? '');
+      }
+
+      function renderMessage(node, attribute, source, getParameters) {
+        const text = translate(source, getParameters?.());
+        if (attribute) node.setAttribute(attribute, text);
+        else node.textContent = text;
+      }
+
+      function localize(node, source, getParameters, attribute = '') {
+        if (!localizedNodes.has(node)) localizedNodes.set(node, new Map());
+        localizedNodes.get(node).set(attribute, {source, getParameters});
+        renderMessage(node, attribute, source, getParameters);
+      }
+
+      function localizeText(id, source, getParameters) {
+        localize(document.getElementById(id), source, getParameters);
+      }
+
+      function bindStaticMessages() {
+        document.querySelectorAll('[data-i18n]').forEach(node => localize(node, node.textContent.trim()));
+        navButtons.forEach(button => {
+          localize(button, button.querySelector('.nav-label').textContent.trim(), undefined, 'aria-label');
+        });
+        for (const attribute of ['aria-label', 'alt', 'placeholder', 'data-image-caption']) {
+          document.querySelectorAll(`[data-i18n-${attribute}]`).forEach(node => {
+            localize(node, node.getAttribute(attribute), undefined, attribute);
+          });
+        }
+      }
+
+      function setLanguage(nextLanguage) {
+        language = languages.includes(nextLanguage) ? nextLanguage : 'en';
+        document.documentElement.lang = language;
+        for (const [node, fields] of localizedNodes) {
+          for (const [attribute, {source, getParameters}] of fields) {
+            renderMessage(node, attribute, source, getParameters);
+          }
+        }
+        if (locationAutofilled) locationInput.value = translate(scannedLocation);
+        translateMapControls();
+        document.querySelectorAll('[data-language-select]').forEach(select => select.value = language);
+        localStorage.setItem('careflow-language', language);
+      }
+
       document.querySelectorAll('[data-language-select]').forEach(select=>select.addEventListener('change',()=>setLanguage(select.value)));
       function showPage(id){const config=currentRole&&roleConfig[currentRole];if(config&&!config.pages.includes(id))id=config.defaultPage;pages.forEach(p=>p.classList.toggle('active',p.id===id));navButtons.forEach(n=>n.classList.toggle('active',n.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'});}
       function initials(name){return name.trim().split(/\s+/).slice(0,2).map(word=>word[0]).join('').toUpperCase();}
-      function applyRole(role,profile={}){currentRole=role;const config=roleConfig[role];navButtons.forEach(button=>button.hidden=button.dataset.access!==role);document.querySelectorAll('[data-goto]').forEach(button=>button.hidden=!config.pages.includes(button.dataset.goto));document.getElementById('profile-avatar').textContent=initials(profile.name||config.name);document.getElementById('profile-name').textContent=profile.name||config.name;document.getElementById('profile-role').textContent=config.label;}
+      function applyRole(role,profile={}){currentRole=role;const config=roleConfig[role];navButtons.forEach(button=>button.hidden=button.dataset.access!==role);document.querySelectorAll('[data-goto]').forEach(button=>button.hidden=!config.pages.includes(button.dataset.goto));document.getElementById('profile-avatar').textContent=initials(profile.name||config.name);document.getElementById('profile-name').textContent=profile.name||config.name;localizeText('profile-role',config.label);}
       document.querySelectorAll('[data-page]').forEach(btn=>btn.addEventListener('click',()=>showPage(btn.dataset.page)));
       document.querySelectorAll('[data-goto]').forEach(btn=>btn.addEventListener('click',()=>showPage(btn.dataset.goto)));
-      function notify(message){toast.textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),3200)}
+      let toastTimer;
+      function notify(message, getParameters){
+        localize(toast,message,getParameters);
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer=setTimeout(()=>toast.classList.remove('show'),3200);
+      }
       document.querySelectorAll('.category').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.category').forEach(x=>x.classList.remove('active'));button.classList.add('active')}));
       document.getElementById('photo-button').addEventListener('click',()=>notify('Photo slot opened — image upload is represented in this prototype.'));
       const qrSpots={'hostel-h-2':'Hostel H · 2nd floor','academic-4-east':'Academic Block 4 · east stairs','library-north':'Library · north wing','dining-corridor':'Central dining · corridor'};
       const deployedBase='https://careflow-iitgn-ux.huedpheasant4.chatgpt.site/';
       function scanLink(spot){const base=location.protocol==='file:'?deployedBase:`${location.origin}${location.pathname}`;return `${base}?spot=${encodeURIComponent(spot)}`;}
-      function renderLocationQR(spot){document.getElementById('qr-location-name').textContent=qrSpots[spot];document.getElementById('qr-link').textContent=scanLink(spot);const image=document.getElementById('location-qr');image.src=`assets/qr/${spot}.svg`;image.alt=`QR code for ${qrSpots[spot]}`;}
+      function renderLocationQR(spot){
+        const place=qrSpots[spot];
+        localizeText('qr-location-name',place);
+        document.getElementById('qr-link').textContent=scanLink(spot);
+        const image=document.getElementById('location-qr');
+        image.src=`assets/qr/${spot}.svg`;
+        localize(image,'QR code for {place}',()=>({place:translate(place)}),'alt');
+      }
       const qrSelect=document.getElementById('qr-spot-select');
       qrSelect.addEventListener('change',()=>renderLocationQR(qrSelect.value));
       document.getElementById('copy-qr-link').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(document.getElementById('qr-link').textContent);notify('Location scan link copied.')}catch{notify('Copy this link from the label preview.')}});
       const locationInput=document.getElementById('location');
       const scannedSpot=new URLSearchParams(location.search).get('spot');
       const scannedLocation=Object.hasOwn(qrSpots,scannedSpot)?qrSpots[scannedSpot]:'';
-      if(scannedLocation)locationInput.value=scannedLocation;
-      renderLocationQR(qrSelect.value);
+      let locationAutofilled=Boolean(scannedLocation);
       const mapZones={academic:{name:'Academic blocks',summary:'4 open tasks. One overflowing-bin request is waiting near the east stairs.'},hostels:{name:'Hostels',summary:'3 open tasks. A high-priority wash-basin tap issue is waiting in Hostel H.'},library:{name:'Library & common areas',summary:'2 open tasks. A corridor light issue is waiting in the library north wing.'}};
       let selectedMapZone='academic';
-      function selectMapZone(zone){selectedMapZone=zone;const details=mapZones[zone];document.querySelectorAll('[data-map-zone]').forEach(control=>control.classList.toggle('selected',control.dataset.mapZone===zone));document.getElementById('map-zone-name').textContent=details.name;document.getElementById('map-zone-summary').textContent=details.summary;}
-      function applyDispatchFilter(zone){const tasks=[...document.querySelectorAll('[data-task-zone]')];const message=document.getElementById('dispatch-filter-message');const count=document.getElementById('unassigned-count');if(!zone){tasks.forEach(task=>task.hidden=false);message.hidden=true;count.textContent='3 to assign';return;}tasks.forEach(task=>task.hidden=task.dataset.taskZone!==zone);message.hidden=false;document.getElementById('dispatch-filter-text').textContent=`Showing the representative task for ${mapZones[zone].name}.`;count.textContent='1 shown';}
+      function selectMapZone(zone){selectedMapZone=zone;const details=mapZones[zone];document.querySelectorAll('[data-map-zone]').forEach(control=>control.classList.toggle('selected',control.dataset.mapZone===zone));localizeText('map-zone-name',details.name);localizeText('map-zone-summary',details.summary);}
+      function applyDispatchFilter(zone){
+        document.querySelectorAll('[data-task-zone]').forEach(task => {
+          task.hidden = Boolean(zone) && task.dataset.taskZone !== zone;
+        });
+        document.getElementById('dispatch-filter-message').hidden = !zone;
+        if (zone) {
+          localizeText('dispatch-filter-text','Showing the representative task for {zone}.',
+            () => ({zone:translate(mapZones[zone].name)}));
+        }
+        localizeText('unassigned-count',zone ? '1 shown' : '3 to assign');
+      }
       document.querySelectorAll('[data-map-zone]').forEach(control=>control.addEventListener('click',()=>selectMapZone(control.dataset.mapZone)));
       document.getElementById('map-open-dispatch').addEventListener('click',()=>{showPage('dispatch');applyDispatchFilter(selectedMapZone);});
       document.getElementById('clear-map-filter').addEventListener('click',()=>applyDispatchFilter(null));
@@ -193,7 +484,63 @@
         {zone:'hostels',title:'Refill soap dispenser',place:'Hostel D, ground floor',status:'Routine',color:'#176b62',lat:23.21290,lng:72.68537}
       ];
       let liveMap=null;
-      function openLiveMap(){const overlay=document.getElementById('live-map-overlay');overlay.classList.add('open');const mount=document.getElementById('live-map');if(!window.L){mount.innerHTML='<div style="padding:28px;font-weight:700">The OpenStreetMap library could not load. Please check your internet connection and reopen the map.</div>';return;}if(!liveMap){liveMap=L.map('live-map',{zoomControl:true}).setView(iitgnCenter,16);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'}).addTo(liveMap);liveTasks.forEach(task=>{L.circleMarker([task.lat,task.lng],{radius:9,color:'#fff',weight:2,fillColor:task.color,fillOpacity:1}).addTo(liveMap).bindPopup(`<b>${task.title}</b><p>${task.place}<br>${task.status}</p><button class="map-popup-action" data-map-dispatch="${task.zone}">Open dispatch task</button>`);});}setTimeout(()=>liveMap.invalidateSize(),80);}
+      function translateMapControls(){
+        const controls=[
+          ['.leaflet-control-zoom-in','Zoom in'],
+          ['.leaflet-control-zoom-out','Zoom out'],
+          ['.leaflet-popup-close-button','Close popup']
+        ];
+        for(const [selector,message] of controls){
+          const control=document.querySelector(`#live-map ${selector}`);
+          if(control){
+            control.title=translate(message);
+            control.setAttribute('aria-label',translate(message));
+          }
+        }
+        const credit=document.querySelector('#live-map .map-credit');
+        if(credit)credit.textContent=translate('OpenStreetMap contributors');
+      }
+
+      function createTaskPopup(task){
+        const content=document.createElement('div');
+        content.innerHTML='<b></b><p><span></span><br><span></span></p><button class="map-popup-action" type="button"></button>';
+        localize(content.querySelector('b'),task.title);
+        const [place,status]=content.querySelectorAll('span');
+        localize(place,task.place);
+        localize(status,task.status);
+        const action=content.querySelector('button');
+        action.dataset.mapDispatch=task.zone;
+        localize(action,'Open dispatch task');
+        return content;
+      }
+
+      function openLiveMap(){
+        document.getElementById('live-map-overlay').classList.add('open');
+        if(!window.L){
+          const mount=document.getElementById('live-map');
+          if(!mount.firstElementChild){
+            const fallback=document.createElement('div');
+            fallback.style.cssText='padding:28px;font-weight:700';
+            localize(fallback,'The OpenStreetMap library could not load. Please check your internet connection and reopen the map.');
+            mount.append(fallback);
+          }
+          return;
+        }
+        if(!liveMap){
+          liveMap=L.map('live-map',{zoomControl:true}).setView(iitgnCenter,16);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+            maxZoom:19,
+            attribution:'&copy; <a class="map-credit" href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+          }).addTo(liveMap);
+          for(const task of liveTasks){
+            L.circleMarker([task.lat,task.lng],{radius:9,color:'#fff',weight:2,fillColor:task.color,fillOpacity:1})
+              .addTo(liveMap).bindPopup(createTaskPopup(task));
+          }
+          liveMap.on('popupopen',translateMapControls);
+        }
+        translateMapControls();
+        setTimeout(()=>liveMap.invalidateSize(),80);
+      }
       function closeLiveMap(){document.getElementById('live-map-overlay').classList.remove('open');}
       const miniMap=document.getElementById('mini-map');
       miniMap.addEventListener('click',event=>{if(!event.target.closest('[data-map-zone]'))openLiveMap();});
@@ -204,6 +551,7 @@
       const modal=document.getElementById('modal');
       const locationError=document.getElementById('location-error');
       locationInput.addEventListener('input',()=>{
+        locationAutofilled=false;
         if(!locationInput.value.trim())return;
         locationError.hidden=true;
         locationInput.removeAttribute('aria-invalid');
@@ -220,24 +568,44 @@
           return;
         }
         const type=document.querySelector('.category.active').dataset.category;
-        document.getElementById('modal-title').textContent='Request received';
-        document.getElementById('modal-text').textContent=`Your ${type.toLowerCase()} request at ${issueLocation} has been added to the relevant queue. Ticket CF-1048 is visible to the operations team.`;
+        const submittedFromQR=locationAutofilled;
+        localizeText('modal-text','Your {type} request at {location} has been added to the relevant queue. Ticket CF-1048 is visible to the operations team.',()=>({
+          type:language==='en'?type.toLowerCase():translate(type),
+          location:submittedFromQR?translate(scannedLocation):issueLocation
+        }));
         modal.classList.add('open');
       });
       document.getElementById('modal-close').onclick=()=>modal.classList.remove('open');document.getElementById('modal-go').onclick=()=>{modal.classList.remove('open');showPage('overview');notify('Ticket CF-1048 is now in the active queue.');};
-      const taskData={tap:{type:'Maintenance',title:'Leaking wash-basin tap',meta:'Reported 11 min ago · High priority',location:'⌖ Hostel H, second-floor common washroom<br><small>Near rooms H-213 to H-217</small>',status:'Assigned',pill:'high'},bin:{type:'Cleaning',title:'Overflowing bin near east stairs',meta:'Reported 23 min ago · Due in 43 min',location:'⌖ Academic Block 4, east staircase<br><small>Near the first-floor landing</small>',status:'Assigned',pill:'urgent'},soap:{type:'Cleaning',title:'Refill soap dispenser',meta:'Scheduled routine check · due today',location:'⌖ Hostel D, ground-floor washroom<br><small>Near the common room</small>',status:'Assigned',pill:''}};
-      document.querySelectorAll('.staff-task').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.staff-task').forEach(x=>x.classList.remove('active'));button.classList.add('active');const d=taskData[button.dataset.task];document.getElementById('work-type').textContent=d.type;document.getElementById('work-title').textContent=d.title;document.getElementById('work-meta').textContent=d.meta;document.getElementById('work-location').innerHTML=d.location;document.getElementById('work-status').textContent=d.status;document.getElementById('work-status').className='pill '+d.pill;document.getElementById('after-photo').textContent='Add completion photo';}));
-      document.getElementById('complete-button').addEventListener('click',()=>{document.getElementById('work-status').textContent='Completed';document.getElementById('work-status').className='pill';document.getElementById('after-photo').textContent='Completion evidence attached';notify('Marked completed. The requester can now confirm or reopen it.');});
+      const taskData={tap:{type:'Maintenance',title:'Leaking wash-basin tap',meta:'Reported 11 min ago · High priority',place:'⌖ Hostel H, second-floor common washroom',landmark:'Near rooms H-213 to H-217',status:'Assigned',pill:'high'},bin:{type:'Cleaning',title:'Overflowing bin near east stairs',meta:'Reported 23 min ago · Due in 43 min',place:'⌖ Academic Block 4, east staircase',landmark:'Near the first-floor landing',status:'Assigned',pill:'urgent'},soap:{type:'Cleaning',title:'Refill soap dispenser',meta:'Scheduled routine check · due today',place:'⌖ Hostel D, ground-floor washroom',landmark:'Near the common room',status:'Assigned',pill:''}};
+      const staffTasks = document.querySelectorAll('.staff-task');
+      staffTasks.forEach(button => button.addEventListener('click', () => {
+        staffTasks.forEach(task => task.classList.toggle('active', task === button));
+        const task = taskData[button.dataset.task];
+        localizeText('work-type', task.type);
+        localizeText('work-title', task.title);
+        localizeText('work-meta', task.meta);
+        localizeText('work-place', task.place);
+        localizeText('work-landmark', task.landmark);
+        localizeText('work-status', task.status);
+        document.getElementById('work-status').className = 'pill ' + task.pill;
+        localizeText('after-photo', 'Add completion photo');
+      }));
+      document.getElementById('complete-button').addEventListener('click', () => {
+        localizeText('work-status', 'Completed');
+        document.getElementById('work-status').className = 'pill';
+        localizeText('after-photo', 'Completion evidence attached');
+        notify('Marked completed. The requester can now confirm or reopen it.');
+      });
       document.getElementById('supply-button').addEventListener('click',()=>notify('Supply request added to the supervisor queue.'));
       document.getElementById('escalate-button').addEventListener('click',()=>notify('Task escalated with your work note.'));
-      document.getElementById('assign-all').addEventListener('click',()=>{const selects=document.querySelectorAll('.assign-select');selects[0].value='Ravi · Maintenance';selects[1].value='Meena · Housekeeping';selects[2].value='Imran · Maintenance';document.getElementById('unassigned-count').textContent='3 suggested';notify('Suggested assignees added. Supervisor review remains required.');});
+      document.getElementById('assign-all').addEventListener('click',()=>{const selects=document.querySelectorAll('.assign-select');selects[0].value='Ravi · Maintenance';selects[1].value='Meena · Housekeeping';selects[2].value='Imran · Maintenance';localizeText('unassigned-count','3 suggested');notify('Suggested assignees added. Supervisor review remains required.');});
       let selectedAuthRole='';
-      function signIn(role,profile){const user={role,name:profile.name,email:profile.email,id:profile.id};sessionStorage.setItem('careflow-user',JSON.stringify(user));applyRole(role,user);document.getElementById('auth-overlay').classList.add('hidden');showPage(roleConfig[role].defaultPage);if(scannedLocation&&role==='resident'&&locationInput.value===scannedLocation)setTimeout(()=>notify(`Location set: ${scannedLocation}`),180);}
-      document.querySelectorAll('[data-auth-role]').forEach(button=>button.addEventListener('click',()=>{selectedAuthRole=button.dataset.authRole;document.querySelectorAll('[data-auth-role]').forEach(card=>card.classList.toggle('selected',card===button));document.getElementById('auth-error').textContent='';}));
-      document.getElementById('auth-form').addEventListener('submit',event=>{event.preventDefault();const form=event.currentTarget;const name=form.elements.name.value.trim();const email=form.elements.email.value.trim();const id=form.elements.id.value.trim();const password=form.elements.password.value;const error=document.getElementById('auth-error');if(!name||!email||!id||password.length<6){error.textContent='Please complete every account field; the password must have at least 6 characters.';return;}if(!form.elements.email.checkValidity()){error.textContent='Enter a valid institute or work email address.';return;}if(!selectedAuthRole){error.textContent='Choose your access role to continue.';return;}signIn(selectedAuthRole,{name,email,id});form.reset();});
+      function signIn(role,profile){const user={role,name:profile.name,email:profile.email,id:profile.id};sessionStorage.setItem('careflow-user',JSON.stringify(user));applyRole(role,user);document.getElementById('auth-overlay').classList.add('hidden');showPage(roleConfig[role].defaultPage);if(locationAutofilled&&role==='resident')setTimeout(()=>{if(locationAutofilled&&currentRole==='resident')notify('Location set: {place}',()=>({place:translate(scannedLocation)}));},180);}
+      document.querySelectorAll('[data-auth-role]').forEach(button=>button.addEventListener('click',()=>{selectedAuthRole=button.dataset.authRole;document.querySelectorAll('[data-auth-role]').forEach(card=>card.classList.toggle('selected',card===button));localizeText('auth-error','');}));
+      document.getElementById('auth-form').addEventListener('submit',event=>{event.preventDefault();const form=event.currentTarget;const name=form.elements.name.value.trim();const email=form.elements.email.value.trim();const id=form.elements.id.value.trim();const password=form.elements.password.value;const error=document.getElementById('auth-error');if(!name||!email||!id||password.length<6){localize(error,'Please complete every account field; the password must have at least 6 characters.');return;}if(!form.elements.email.checkValidity()){localize(error,'Enter a valid institute or work email address.');return;}if(!selectedAuthRole){localize(error,'Choose your access role to continue.');return;}localize(error,'');signIn(selectedAuthRole,{name,email,id});form.reset();});
       document.getElementById('logout-button').addEventListener('click',()=>{sessionStorage.removeItem('careflow-user');currentRole=null;selectedAuthRole='';document.querySelectorAll('[data-auth-role]').forEach(card=>card.classList.remove('selected'));document.getElementById('auth-overlay').classList.remove('hidden');});
-      const workspaceI18n={'#staff .eyebrow':'staff.eyebrow','#staff .page-head h1':'staff.title','#staff .page-head p':'staff.copy','#staff .card-title':'staff.queue','#complete-button':'staff.complete','#supply-button':'staff.supplies','#escalate-button':'staff.escalate','#dispatch .eyebrow':'supervisor.eyebrow','#dispatch .page-head h1':'supervisor.title','#dispatch .page-head p':'supervisor.copy','#assign-all':'supervisor.assign','#dispatch .assignment-grid .card-title':'supervisor.unassigned','#overview .dashboard .left-col > .card:nth-child(3) .card-title':'supervisor.map','#map-open-dispatch':'supervisor.openTasks'};
-      Object.entries(workspaceI18n).forEach(([selector,key])=>{const element=document.querySelector(selector);if(element)element.dataset.i18n=key;});
+      bindStaticMessages();
+      renderLocationQR(qrSelect.value);
       setLanguage(localStorage.getItem('careflow-language')||'en');
       try{const savedUser=JSON.parse(sessionStorage.getItem('careflow-user'));if(savedUser&&roleConfig[savedUser.role])signIn(savedUser.role,savedUser);}catch{}
     </script>
